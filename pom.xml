@@ -31,4 +31,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <build>
+    <plugins>
+      <plugin>
+			  <groupId>org.apache.commons</groupId>
+			  <artifactId>commons-build-plugin</artifactId>
+			  <version>1.6</version>
+			</plugin>
+    </plugins>
+  </build>
 </project>
