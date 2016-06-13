@@ -168,8 +168,8 @@
 package com.sadofftext.Symbolic;
 
 /**
- *
- *
+ * The class variable. This is used to represent a variable in a CAS.
+ * As such 'x' can just be 'x' and not the typical: `int x = 2`.
  * @author Eli David Sadoff
  * @since 1.0
  * @version 1.0
