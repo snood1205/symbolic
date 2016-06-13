@@ -4,7 +4,6 @@
   <groupId>com.sadofftext.Symbolic</groupId>
   <artifactId>Symbolic</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
   <name>Symbolic</name>
   <url>https://github.com/snood1205/symbolic</url>
   <dependencies>
@@ -24,4 +23,5 @@
   	<system>GitHub Issues</system>
   	<url>https://github.com/snood1205/symbolic/issues</url>
   </issueManagement>
+  <version>0.1-PREALPHA</version>
 </project>
