@@ -6,13 +6,22 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Symbolic</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/snood1205/symbolic</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <version>4.12</version>
     </dependency>
   </dependencies>
+  <description>This project exists to do Symbolic arithmetic. The current goals is to have a Computer Algebra system and basic calculus features. The current estimated completion time for these goals is 3-6 months with the hopes that it will be finished sooner. If you would like to contribute to this project please contact me at snood1205@gmail.com, or visit my github and ask to be a contributor there.</description>
+  <inceptionYear>2016</inceptionYear>
+  <organization>
+  	<name>Sadoff Text</name>
+  	<url>http://sadofftext.com</url>
+  </organization>
+  <issueManagement>
+  	<system>GitHub Issues</system>
+  	<url>https://github.com/snood1205/symbolic/issues</url>
+  </issueManagement>
 </project>
