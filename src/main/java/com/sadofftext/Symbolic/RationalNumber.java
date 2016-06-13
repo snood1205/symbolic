@@ -164,47 +164,71 @@
  * permanent authorization for you to choose that version for the
  * Library.
  */
-
 package com.sadofftext.Symbolic;
 
 /**
- * The class variable. This is used to represent a variable in a CAS.
- * As such 'x' can just be 'x' and not the typical: `int x = 2`.
+ *
+ *
  * @author Eli David Sadoff
  * @since 1.0
  * @version 1.0
  *
  */
-public class Variable implements Operations<Variable> {
-  /** This holds the coefficient of the variable */
-  private int n;
-  /** This holds the name of the variable */
-  private String name;
-  /** This holds the 
+public class RationalNumber extends Numeric {
+  /** Holds the numerator of the fraction */
+  private int numerator;
+  /** Holds the denominator of the fraction. May not be 0 */
+  private int denominator;
   
   /**
-   * This is the constructor for the Variable.
-   * 
-   * @param name the name to set 
+   * Gets {@code numerator}.
+   * @return the numerator
    */
-  public Variable(String name){
-    this.name = name;
+  public int getNumerator() {
+    return numerator;
   }
 
   /**
-   * Gets {@code name}.
-   * @return the name
+   * Sets {@code numerator}.
+   * @param numerator the numerator to set
    */
-  public String getName() {
-    return name;
+  public void setNumerator(int numerator) {
+    this.numerator = numerator;
   }
 
   /**
-   * Sets {@code name}.
-   * @param name the name to set
+   * Gets {@code denominator}.
+   * @return the denominator
    */
-  public void setName(String name) {
-    this.name = name;
+  public int getDenominator() {
+    return denominator;
+  }
+
+  /**
+   * Sets {@code denominator}.
+   * @param denominator the denominator to set
+   */
+  public void setDenominator(int denominator) throws IllegalArgumentException {
+    if(denominator == 0){
+      throw new IllegalArgumentException("Denominator may not be 0");
+    }
+    this.denominator = denominator;
+  }
+
+  /**
+   * This is the constructor for the RationalNumber. This creates a number in the format:
+   * <sup><code>num</code></sup>&frasl;<sub><code>den</code></sub> where {@code num} is the
+   * numerator and {@code den} is the denominator. 
+   * @param numerator the numerator of the fraction
+   * @param denominator the denominator of the fraction. This may not be 0.
+   * @throws IllegalArgumentException thrown is 0 is passed as the denominator
+   */
+  public RationalNumber(int numerator, int denominator) throws IllegalArgumentException{
+    if(denominator == 0){
+      throw new IllegalArgumentException("Denominator may not equal 0");
+    }
+    this.numerator = numerator;
+    this.denominator = denominator;
   }
 
   /** 
@@ -213,7 +237,7 @@ public class Variable implements Operations<Variable> {
    * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
    */
   @Override
-  public Variable add(Variable o) {
+  public Numeric add(Numeric o) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -224,7 +248,7 @@ public class Variable implements Operations<Variable> {
    * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
    */
   @Override
-  public Variable subtract(Variable o) {
+  public Numeric subtract(Numeric o) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -235,7 +259,7 @@ public class Variable implements Operations<Variable> {
    * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
    */
   @Override
-  public Variable multiply(Variable o) {
+  public Numeric multiply(Numeric o) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -246,8 +270,19 @@ public class Variable implements Operations<Variable> {
    * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
    */
   @Override
-  public Variable divide(Variable o) {
+  public Numeric divide(Numeric o) {
     // TODO Auto-generated method stub
     return null;
   }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#getNumber()
+   */
+  @Override
+  public Numeric getNumber() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

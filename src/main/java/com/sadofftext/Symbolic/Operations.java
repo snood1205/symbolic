@@ -164,90 +164,20 @@
  * permanent authorization for you to choose that version for the
  * Library.
  */
-
 package com.sadofftext.Symbolic;
 
 /**
- * The class variable. This is used to represent a variable in a CAS.
- * As such 'x' can just be 'x' and not the typical: `int x = 2`.
+ * This interface is for symbolic operations. This will be implemented by many
+ * of the classes in symbol.
+ *
  * @author Eli David Sadoff
  * @since 1.0
  * @version 1.0
  *
  */
-public class Variable implements Operations<Variable> {
-  /** This holds the coefficient of the variable */
-  private int n;
-  /** This holds the name of the variable */
-  private String name;
-  /** This holds the 
-  
-  /**
-   * This is the constructor for the Variable.
-   * 
-   * @param name the name to set 
-   */
-  public Variable(String name){
-    this.name = name;
-  }
-
-  /**
-   * Gets {@code name}.
-   * @return the name
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Sets {@code name}.
-   * @param name the name to set
-   */
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
-   */
-  @Override
-  public Variable add(Variable o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
-   */
-  @Override
-  public Variable subtract(Variable o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
-   */
-  @Override
-  public Variable multiply(Variable o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
-   */
-  @Override
-  public Variable divide(Variable o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
+public interface Operations<T> {
+  public T add(T o);
+  public T subtract(T o);
+  public T multiply(T o);
+  public T divide(T o);
 }
