@@ -52,4 +52,4 @@ To actually contribute code:
 
 License
 -------
-Code is under the [MIT License](LICENSE).
+Code is under the [GNU LGPLv3](LICENSE).
