@@ -174,13 +174,60 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Numeric implements Operations<Numeric> {
-  public abstract Numeric getNumber();
-  public static Numeric toNumeric(Number n){
-    NumberType type = NumberType.classify(n);
-    if(type.isIntType()){
-      return new IntegerType(n);
-    }
+public class IntegerType extends Numeric {
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
+   */
+  @Override
+  public Numeric add(Numeric o) {
+    // TODO Auto-generated method stub
+    return null;
   }
-  
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
+   */
+  @Override
+  public Numeric subtract(Numeric o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
+   */
+  @Override
+  public Numeric multiply(Numeric o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
+   */
+  @Override
+  public Numeric divide(Numeric o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#getNumber()
+   */
+  @Override
+  public Numeric getNumber() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

@@ -166,6 +166,15 @@
  */
 package com.sadofftext.Symbolic;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.DoubleAccumulator;
+import java.util.concurrent.atomic.DoubleAdder;
+import java.util.concurrent.atomic.LongAccumulator;
+import java.util.concurrent.atomic.LongAdder;
+
 /**
  *
  *
@@ -174,13 +183,75 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Numeric implements Operations<Numeric> {
-  public abstract Numeric getNumber();
-  public static Numeric toNumeric(Number n){
-    NumberType type = NumberType.classify(n);
-    if(type.isIntType()){
-      return new IntegerType(n);
-    }
+public enum NumberType {
+  ATOMICINTEGER("AtomicInteger", true), 
+  ATOMICLONG("AtomicLong", true), 
+  BIGDECIMAL("BigDecimal", false), 
+  BIGINTEGER("BigInteger", true), 
+  BYTE("Byte", true), 
+  DOUBLE("Double", false), 
+  DOUBLEACCUMULATOR("DoubleAccumulator", false), 
+  DOUBLEADDER("DoubleAdder", false), 
+  FLOAT("Float", false), 
+  INTEGER("Integer", true), 
+  LONG("Long", true), 
+  LONGACCUMULATOR("LongAccumulator", true), 
+  LONGADDER("LongAdder", true), 
+  SHORT("Short", true);
+  
+  private final String name;
+  private final boolean intType;
+  
+  private NumberType(String name, boolean intType){
+    this.name = name;
+    this.intType = intType;
   }
   
+  public static NumberType classify(Number n){
+    if(n.getClass() == AtomicInteger.class){
+      return ATOMICINTEGER;
+    } else if(n.getClass() == AtomicLong.class){
+      return ATOMICLONG;
+    } else if(n.getClass() == BigDecimal.class){
+      return BIGDECIMAL;
+    } else if(n.getClass() == BigInteger.class){
+      return BIGINTEGER;
+    } else if(n.getClass() == Byte.class){
+      return BYTE;
+    } else if(n.getClass() == Double.class){
+      return DOUBLE;
+    } else if(n.getClass() == DoubleAccumulator.class){
+      return DOUBLEACCUMULATOR;
+    } else if(n.getClass() == DoubleAdder.class){
+      return DOUBLEADDER;
+    } else if(n.getClass() == Float.class){
+      return FLOAT;
+    } else if(n.getClass() == Integer.class){
+      return INTEGER;
+    } else if(n.getClass() == Long.class){
+      return LONG;
+    } else if(n.getClass() == LongAccumulator.class){
+      return LONGACCUMULATOR;
+    } else if(n.getClass() == LongAdder.class){
+      return LONGADDER;
+    } else{
+      return SHORT;
+    }
+  }
+
+  /**
+   * Gets {@code name}.
+   * @return the name
+   */
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Gets {@code intType}.
+   * @return the intType
+   */
+  public boolean isIntType() {
+    return intType;
+  }
 }

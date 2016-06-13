@@ -177,19 +177,30 @@ package com.sadofftext.Symbolic;
  */
 public class Variable implements Operations<Variable> {
   /** This holds the coefficient of the variable */
-  private int n;
+  private Numeric coefficient;
   /** This holds the name of the variable */
   private String name;
-  /** This holds the 
+  /** This holds the exponent */
+  private Numeric exponent;
   
   /**
-   * This is the constructor for the Variable.
+   * This is the convenience constructor for the Variable.
    * 
    * @param name the name to set 
    */
-  public Variable(String name){
+  public Variable(Numeric coefficient, String name, Numeric exponent){
+    this.coefficient = coefficient;
     this.name = name;
+    this.exponent = exponent;
   }
+  
+  public Variable(Numeric coefficient, String name){
+    this.coefficient = coefficient;
+    this.name = name;
+    this.exponent = Numeric.toNumeric(1);
+  }
+  
+  public 
 
   /**
    * Gets {@code name}.
