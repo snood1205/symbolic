@@ -24,4 +24,11 @@
   	<url>https://github.com/snood1205/symbolic/issues</url>
   </issueManagement>
   <version>0.1-PREALPHA</version>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 </project>
