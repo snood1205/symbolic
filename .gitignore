@@ -1,6 +1,4 @@
 /target/
 *.sh
 index.html
-.classpath
-.project
 /.settings/
