@@ -22,10 +22,15 @@
  * SOFTWARE.
  *
  */
+
 package com.sadofftext.Symbolic;
 
 /**
  * The Class Variable.
+ *
+ * @author Eli Sadoff
+ * @version 1.0
+ * @since 1.0
  */
 public class Variable {
 
