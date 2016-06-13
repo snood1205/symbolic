@@ -38,6 +38,10 @@
 			  <artifactId>commons-build-plugin</artifactId>
 			  <version>1.6</version>
 			</plugin>
+			<plugin>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>2.7</version>
+      </plugin>
     </plugins>
   </build>
 </project>
