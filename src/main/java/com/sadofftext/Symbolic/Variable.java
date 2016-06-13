@@ -176,8 +176,14 @@ package com.sadofftext.Symbolic;
  *
  */
 public class Variable {
+  /** This holds the name of the variable */
   private String name;
   
+  /**
+   * This is the constructor for the Variable.
+   * 
+   * @param name the name to set 
+   */
   public Variable(String name){
     this.name = name;
   }
@@ -197,5 +203,4 @@ public class Variable {
   public void setName(String name) {
     this.name = name;
   }
-  
 }
