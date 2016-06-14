@@ -167,6 +167,10 @@
 
 package com.sadofftext.Symbolic;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.Locale;
+
 /**
  * The class variable. This is used to represent a variable in a CAS.
  * As such 'x' can just be 'x' and not the typical: `int x = 2`.
@@ -385,5 +389,523 @@ public class Variable implements Operations<Variable>{
   public Variable divide(Variable o) {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  /** 
+   * @return
+   * @see java.lang.Object#hashCode()
+   */
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((coefficient == null) ? 0 : coefficient.hashCode());
+    result = prime * result + ((exponent == null) ? 0 : exponent.hashCode());
+    result = prime * result + ((name == null) ? 0 : getName().hashCode());
+    return result;
+  }
+
+  /** 
+   * @param obj
+   * @return
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (!(obj instanceof Variable))
+      return false;
+    Variable other = (Variable) obj;
+    if (coefficient == null) {
+      if (other.coefficient != null)
+        return false;
+    } else if (!coefficient.equals(other.coefficient))
+      return false;
+    if (exponent == null) {
+      if (other.exponent != null)
+        return false;
+    } else if (!exponent.equals(other.exponent))
+      return false;
+    if (name == null) {
+      if (other.name != null)
+        return false;
+    } else if (!getName().equals(other.name))
+      return false;
+    return true;
+  }
+
+  /**
+   * @return
+   * @see java.lang.String#length()
+   */
+  public int length() {
+    return getName().length();
+  }
+
+  /**
+   * @return
+   * @see java.lang.String#isEmpty()
+   */
+  public boolean isEmpty() {
+    return getName().isEmpty();
+  }
+
+  /**
+   * @param index
+   * @return
+   * @see java.lang.String#charAt(int)
+   */
+  public char charAt(int index) {
+    return getName().charAt(index);
+  }
+
+  /**
+   * @param index
+   * @return
+   * @see java.lang.String#codePointAt(int)
+   */
+  public int codePointAt(int index) {
+    return getName().codePointAt(index);
+  }
+
+  /**
+   * @param index
+   * @return
+   * @see java.lang.String#codePointBefore(int)
+   */
+  public int codePointBefore(int index) {
+    return getName().codePointBefore(index);
+  }
+
+  /**
+   * @param beginIndex
+   * @param endIndex
+   * @return
+   * @see java.lang.String#codePointCount(int, int)
+   */
+  public int codePointCount(int beginIndex, int endIndex) {
+    return getName().codePointCount(beginIndex, endIndex);
+  }
+
+  /**
+   * @param index
+   * @param codePointOffset
+   * @return
+   * @see java.lang.String#offsetByCodePoints(int, int)
+   */
+  public int offsetByCodePoints(int index, int codePointOffset) {
+    return getName().offsetByCodePoints(index, codePointOffset);
+  }
+
+  /**
+   * @param srcBegin
+   * @param srcEnd
+   * @param dst
+   * @param dstBegin
+   * @see java.lang.String#getChars(int, int, char[], int)
+   */
+  public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) {
+    getName().getChars(srcBegin, srcEnd, dst, dstBegin);
+  }
+
+  /**
+   * @param srcBegin
+   * @param srcEnd
+   * @param dst
+   * @param dstBegin
+   * @deprecated
+   * @see java.lang.String#getBytes(int, int, byte[], int)
+   */
+  public void getBytes(int srcBegin, int srcEnd, byte[] dst, int dstBegin) {
+    getName().getBytes(srcBegin, srcEnd, dst, dstBegin);
+  }
+
+  /**
+   * @param charsetName
+   * @return
+   * @throws UnsupportedEncodingException
+   * @see java.lang.String#getBytes(java.lang.String)
+   */
+  public byte[] getBytes(String charsetName) throws UnsupportedEncodingException {
+    return getName().getBytes(charsetName);
+  }
+
+  /**
+   * @param charset
+   * @return
+   * @see java.lang.String#getBytes(java.nio.charset.Charset)
+   */
+  public byte[] getBytes(Charset charset) {
+    return getName().getBytes(charset);
+  }
+
+  /**
+   * @return
+   * @see java.lang.String#getBytes()
+   */
+  public byte[] getBytes() {
+    return getName().getBytes();
+  }
+
+  /**
+   * @param sb
+   * @return
+   * @see java.lang.String#contentEquals(java.lang.StringBuffer)
+   */
+  public boolean contentEquals(StringBuffer sb) {
+    return getName().contentEquals(sb);
+  }
+
+  /**
+   * @param cs
+   * @return
+   * @see java.lang.String#contentEquals(java.lang.CharSequence)
+   */
+  public boolean contentEquals(CharSequence cs) {
+    return getName().contentEquals(cs);
+  }
+
+  /**
+   * @param anotherString
+   * @return
+   * @see java.lang.String#equalsIgnoreCase(java.lang.String)
+   */
+  public boolean equalsIgnoreCase(String anotherString) {
+    return getName().equalsIgnoreCase(anotherString);
+  }
+
+  /**
+   * @param anotherString
+   * @return
+   * @see java.lang.String#compareTo(java.lang.String)
+   */
+  public int compareTo(String anotherString) {
+    return getName().compareTo(anotherString);
+  }
+
+  /**
+   * @param str
+   * @return
+   * @see java.lang.String#compareToIgnoreCase(java.lang.String)
+   */
+  public int compareToIgnoreCase(String str) {
+    return getName().compareToIgnoreCase(str);
+  }
+
+  /**
+   * @param toffset
+   * @param other
+   * @param ooffset
+   * @param len
+   * @return
+   * @see java.lang.String#regionMatches(int, java.lang.String, int, int)
+   */
+  public boolean regionMatches(int toffset, String other, int ooffset, int len) {
+    return getName().regionMatches(toffset, other, ooffset, len);
+  }
+
+  /**
+   * @param ignoreCase
+   * @param toffset
+   * @param other
+   * @param ooffset
+   * @param len
+   * @return
+   * @see java.lang.String#regionMatches(boolean, int, java.lang.String, int, int)
+   */
+  public boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset,
+      int len) {
+    return getName().regionMatches(ignoreCase, toffset, other, ooffset, len);
+  }
+
+  /**
+   * @param prefix
+   * @param toffset
+   * @return
+   * @see java.lang.String#startsWith(java.lang.String, int)
+   */
+  public boolean startsWith(String prefix, int toffset) {
+    return getName().startsWith(prefix, toffset);
+  }
+
+  /**
+   * @param prefix
+   * @return
+   * @see java.lang.String#startsWith(java.lang.String)
+   */
+  public boolean startsWith(String prefix) {
+    return getName().startsWith(prefix);
+  }
+
+  /**
+   * @param suffix
+   * @return
+   * @see java.lang.String#endsWith(java.lang.String)
+   */
+  public boolean endsWith(String suffix) {
+    return getName().endsWith(suffix);
+  }
+
+  /**
+   * @param ch
+   * @return
+   * @see java.lang.String#indexOf(int)
+   */
+  public int indexOf(int ch) {
+    return getName().indexOf(ch);
+  }
+
+  /**
+   * @param ch
+   * @param fromIndex
+   * @return
+   * @see java.lang.String#indexOf(int, int)
+   */
+  public int indexOf(int ch, int fromIndex) {
+    return getName().indexOf(ch, fromIndex);
+  }
+
+  /**
+   * @param ch
+   * @return
+   * @see java.lang.String#lastIndexOf(int)
+   */
+  public int lastIndexOf(int ch) {
+    return getName().lastIndexOf(ch);
+  }
+
+  /**
+   * @param ch
+   * @param fromIndex
+   * @return
+   * @see java.lang.String#lastIndexOf(int, int)
+   */
+  public int lastIndexOf(int ch, int fromIndex) {
+    return getName().lastIndexOf(ch, fromIndex);
+  }
+
+  /**
+   * @param str
+   * @return
+   * @see java.lang.String#indexOf(java.lang.String)
+   */
+  public int indexOf(String str) {
+    return getName().indexOf(str);
+  }
+
+  /**
+   * @param str
+   * @param fromIndex
+   * @return
+   * @see java.lang.String#indexOf(java.lang.String, int)
+   */
+  public int indexOf(String str, int fromIndex) {
+    return getName().indexOf(str, fromIndex);
+  }
+
+  /**
+   * @param str
+   * @return
+   * @see java.lang.String#lastIndexOf(java.lang.String)
+   */
+  public int lastIndexOf(String str) {
+    return getName().lastIndexOf(str);
+  }
+
+  /**
+   * @param str
+   * @param fromIndex
+   * @return
+   * @see java.lang.String#lastIndexOf(java.lang.String, int)
+   */
+  public int lastIndexOf(String str, int fromIndex) {
+    return getName().lastIndexOf(str, fromIndex);
+  }
+
+  /**
+   * @param beginIndex
+   * @return
+   * @see java.lang.String#substring(int)
+   */
+  public String substring(int beginIndex) {
+    return getName().substring(beginIndex);
+  }
+
+  /**
+   * @param beginIndex
+   * @param endIndex
+   * @return
+   * @see java.lang.String#substring(int, int)
+   */
+  public String substring(int beginIndex, int endIndex) {
+    return getName().substring(beginIndex, endIndex);
+  }
+
+  /**
+   * @param beginIndex
+   * @param endIndex
+   * @return
+   * @see java.lang.String#subSequence(int, int)
+   */
+  public CharSequence subSequence(int beginIndex, int endIndex) {
+    return getName().subSequence(beginIndex, endIndex);
+  }
+
+  /**
+   * @param str
+   * @return
+   * @see java.lang.String#concat(java.lang.String)
+   */
+  public String concat(String str) {
+    return getName().concat(str);
+  }
+
+  /**
+   * @param oldChar
+   * @param newChar
+   * @return
+   * @see java.lang.String#replace(char, char)
+   */
+  public String replace(char oldChar, char newChar) {
+    return getName().replace(oldChar, newChar);
+  }
+
+  /**
+   * @param regex the regular expression to check if the string matches
+   * @return if the string matches the pattern
+   * @see java.lang.String#matches(java.lang.String)
+   */
+  public boolean matches(String regex) {
+    return getName().matches(regex);
+  }
+
+  /**
+   * @param s the sequence to check
+   * @return if the variable name contains the sequence
+   * @see java.lang.String#contains(java.lang.CharSequence)
+   */
+  public boolean contains(CharSequence s) {
+    return getName().contains(s);
+  }
+
+  /**
+   * @param regex the regular expression to replace 
+   * @param replacement the replacement
+   * @return a string with the first matching pattern replaced
+   * @see java.lang.String#replaceFirst(java.lang.String, java.lang.String)
+   */
+  public String replaceFirst(String regex, String replacement) {
+    return getName().replaceFirst(regex, replacement);
+  }
+
+  /**
+   * @param regex the regular expression to replace
+   * @param replacement the replacement
+   * @return a string with all of the matching patterns replaced
+   * @see java.lang.String#replaceAll(java.lang.String, java.lang.String)
+   */
+  public String replaceAll(String regex, String replacement) {
+    return getName().replaceAll(regex, replacement);
+  }
+
+  /**
+   * @param target the sequence of characters to replace
+   * @param replacement the sequence of characters that the chars will be replaced with
+   * @return a transformed char
+   * @see java.lang.String#replace(java.lang.CharSequence, java.lang.CharSequence)
+   */
+  public String replace(CharSequence target, CharSequence replacement) {
+    return getName().replace(target, replacement);
+  }
+
+  /**
+   * @param regex the regex to split the string
+   * @param limit the number of times the string is to be split
+   * @return a split string
+   * @see java.lang.String#split(java.lang.String, int)
+   * @see #split(String)
+   */
+  public String[] split(String regex, int limit) {
+    return getName().split(regex, limit);
+  }
+
+  /**
+   * @param regex the regular expression on which to split the string
+   * @return a string split by the provided regex
+   * @see java.lang.String#split(java.lang.String)
+   */
+  public String[] split(String regex) {
+    return getName().split(regex);
+  }
+
+  /**
+   * @param locale the locale of the user
+   * @return the string into a locale based lower case
+   * @see java.lang.String#toLowerCase(java.util.Locale)
+   * @see #toLowerCase()
+   */
+  public String toLowerCase(Locale locale) {
+    return getName().toLowerCase(locale);
+  }
+
+  /**
+   * Turns the variable name to lower case
+   * @return the variable name in lower case
+   * @see java.lang.String#toLowerCase()
+   */
+  public String toLowerCase() {
+    return getName().toLowerCase();
+  }
+
+  /**
+   * @param locale the locale of the user
+   * @return turns the string into a locale based upper case
+   * @see java.lang.String#toUpperCase(java.util.Locale)
+   * @see #toUpperCase()
+   */
+  public String toUpperCase(Locale locale) {
+    return getName().toUpperCase(locale);
+  }
+
+  /**
+   * The variable name in all upper case
+   * @return the variable name in all upper case
+   * @see java.lang.String#toUpperCase()
+   */
+  public String toUpperCase() {
+    return getName().toUpperCase();
+  }
+
+  /**
+   * Returns a string whose value is this string, with any leading and trailing whitespace removed.
+   * 
+   * @return The variable name with leading and trailing whitespace removed
+   * @see java.lang.String#trim()
+   */
+  public String trim() {
+    return getName().trim();
+  }
+
+  /**
+   * Turns name into a charArray
+   * 
+   * @return a char array of the string name
+   * @see java.lang.String#toCharArray()
+   */
+  public char[] toCharArray() {
+    return getName().toCharArray();
+  }
+
+  /**
+   * Returns a canonical representation for the string object.
+   * 
+   * @return a string identical in characters to the string in Name, but from a unique pool
+   * @see java.lang.String#intern()
+   */
+  public String intern() {
+    return getName().intern();
   }
 }
