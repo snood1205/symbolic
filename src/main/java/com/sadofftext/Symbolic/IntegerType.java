@@ -175,10 +175,26 @@ package com.sadofftext.Symbolic;
  *
  */
 public class IntegerType extends Numeric {
-  private Number n;
+  private Number integer;
   
-  public IntegerType(Number n){
-    this.n = n;
+  public IntegerType(Number integer){
+    this.integer = integer;
+  }
+
+  /**
+   * Gets {@code integer}.
+   * @return the integer
+   */
+  public Number getInteger() {
+    return integer;
+  }
+
+  /**
+   * Sets {@code integer}.
+   * @param integer the integer to set
+   */
+  public void setInteger(Number integer) {
+    this.integer = integer;
   }
 
   /** 

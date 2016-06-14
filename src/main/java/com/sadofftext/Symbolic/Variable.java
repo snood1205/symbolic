@@ -211,6 +211,22 @@ public class Variable implements Operations<Variable> {
   }
   
   /**
+   * Gets {@code coefficient}.
+   * @return the coefficient
+   */
+  public Numeric getCoefficient() {
+    return coefficient;
+  }
+
+  /**
+   * Sets {@code coefficient}.
+   * @param coefficient the coefficient to set
+   */
+  public void setCoefficient(Numeric coefficient) {
+    this.coefficient = coefficient;
+  }
+
+  /**
    * Gets {@code name}.
    * @return the name
    */
@@ -224,6 +240,22 @@ public class Variable implements Operations<Variable> {
    */
   public void setName(String name) {
     this.name = name;
+  }
+
+  /**
+   * Gets {@code exponent}.
+   * @return the exponent
+   */
+  public Numeric getExponent() {
+    return exponent;
+  }
+
+  /**
+   * Sets {@code exponent}.
+   * @param exponent the exponent to set
+   */
+  public void setExponent(Numeric exponent) {
+    this.exponent = exponent;
   }
 
   /** 
