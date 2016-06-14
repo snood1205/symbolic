@@ -166,6 +166,7 @@
  */
 package com.sadofftext.Symbolic;
 
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -184,27 +185,29 @@ import java.util.concurrent.atomic.LongAdder;
  *
  */
 public enum NumberType {
-  ATOMICINTEGER("AtomicInteger", true), 
-  ATOMICLONG("AtomicLong", true), 
-  BIGDECIMAL("BigDecimal", false), 
-  BIGINTEGER("BigInteger", true), 
-  BYTE("Byte", true), 
-  DOUBLE("Double", false), 
-  DOUBLEACCUMULATOR("DoubleAccumulator", false), 
-  DOUBLEADDER("DoubleAdder", false), 
-  FLOAT("Float", false), 
-  INTEGER("Integer", true), 
-  LONG("Long", true), 
-  LONGACCUMULATOR("LongAccumulator", true), 
-  LONGADDER("LongAdder", true), 
-  SHORT("Short", true);
+  ATOMICINTEGER("AtomicInteger", true, AtomicInteger.class), 
+  ATOMICLONG("AtomicLong", true, AtomicLong.class), 
+  BIGDECIMAL("BigDecimal", false, BigDecimal.class), 
+  BIGINTEGER("BigInteger", true, BigInteger.class), 
+  BYTE("Byte", true, Byte.class), 
+  DOUBLE("Double", false, Double.class), 
+  DOUBLEACCUMULATOR("DoubleAccumulator", false, DoubleAccumulator.class), 
+  DOUBLEADDER("DoubleAdder", false, DoubleAdder.class), 
+  FLOAT("Float", false, Float.class), 
+  INTEGER("Integer", true, Integer.class), 
+  LONG("Long", true, Long.class), 
+  LONGACCUMULATOR("LongAccumulator", true, LongAccumulator.class), 
+  LONGADDER("LongAdder", true, LongAdder.class), 
+  SHORT("Short", true, Short.class);
   
   private final String name;
   private final boolean intType;
+  private final Type type;
   
-  private NumberType(String name, boolean intType){
+  private NumberType(String name, boolean intType, Type type){
     this.name = name;
     this.intType = intType;
+    this.type = type;
   }
   
   public static NumberType classify(Number n){
@@ -253,5 +256,13 @@ public enum NumberType {
    */
   public boolean isIntType() {
     return intType;
+  }
+
+  /**
+   * Gets {@code type}.
+   * @return the type
+   */
+  public Type getType() {
+    return type;
   }
 }
