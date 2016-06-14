@@ -286,17 +286,17 @@ public class RationalNumber extends Numeric {
   }
   
   public static RationalNumber rationalize(Number n){
-    if((double)n % 1 == 0){
-      return new RationalNumber((int)n, 1);
+    if(n.doubleValue() % 1 == 0){
+      return new RationalNumber(n.intValue(), 1);
     }
     int i = 0;
-    while((Math.pow(10, i)*(double)n) % 1 != 0){
+    while((Math.pow(10, i)*n.doubleValue()) % 1 != 0){
       i++;
     }
-    return new RationalNumber((int)((double)n*Math.pow(10, i)), (int)Math.pow(10, i));
+    return new RationalNumber((int)(n.doubleValue()*Math.pow(10, i)), (int)Math.pow(10, i));
   }
   
-  public static RationalNumber rationalize(IntegericType n){
+  public static RationalNumber rationalize(IntegericType<?> n){
     return new RationalNumber((int)n.getInteger(), 1);
   }
 
@@ -319,7 +319,7 @@ public class RationalNumber extends Numeric {
         return 0;
       }
     } else{
-      IntegericType i = (IntegericType) n;
+      IntegericType<?> i = (IntegericType<?>) n;
       int iThis = (int)i.getInteger() * getDenominator();
       int thisI = getNumerator();
       if(iThis > thisI){

@@ -181,7 +181,7 @@ public class IntegerType extends IntegericType<Integer> {
    * @param n
    */
   public IntegerType(Number n) {
-    super((int) n);
+    super(n.intValue());
   }
 
   /** 
