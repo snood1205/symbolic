@@ -249,4 +249,22 @@ public class IntegerType extends IntegericType<Integer> {
     return null;
   }
 
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#toInteger()
+   */
+  @Override
+  public int toInteger() {
+    return getInteger();
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#toDouble()
+   */
+  @Override
+  public double toDouble() {
+    return getInteger();
+  }
+
 }

@@ -174,103 +174,80 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Function implements Operations<Function>{
-  private String name;
-  private boolean injective;
-  private boolean surjective;
-  private boolean bijective;
-  private Variable[] parameters;
-  
-  public Function(String name, boolean injective, boolean surjective, Variable[] parameters){
-    this.name = name;
-    this.injective = injective;
-    this.surjective = surjective;
-    this.bijective = injective && surjective;
-    this.parameters = parameters;
-  }
+public class Cosine extends Trigonometry {
 
   /**
-   * Gets {@code name}.
-   * @return the name
+   * This is the constructor for the Cosine.
+   * @param name
+   * @param injective
+   * @param surjective
+   * @param varName
    */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Sets {@code name}.
-   * @param name the name to set
-   */
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /**
-   * Gets {@code injective}.
-   * @return the injective
-   */
-  public boolean isInjective() {
-    return injective;
-  }
-
-  /**
-   * Sets {@code injective}.
-   * @param injective the injective to set
-   */
-  public void setInjective(boolean injective) {
-    this.injective = injective;
-  }
-
-  /**
-   * Gets {@code surjective}.
-   * @return the surjective
-   */
-  public boolean isSurjective() {
-    return surjective;
-  }
-
-  /**
-   * Sets {@code surjective}.
-   * @param surjective the surjective to set
-   */
-  public void setSurjective(boolean surjective) {
-    this.surjective = surjective;
-  }
-
-  /**
-   * Gets {@code bijective}.
-   * @return the bijective
-   */
-  public boolean isBijective() {
-    return bijective;
-  }
-
-  /**
-   * Sets {@code bijective}.
-   * @param bijective the bijective to set
-   */
-  public void setBijective(boolean bijective) {
-    this.bijective = bijective;
-  }
-
-  /**
-   * Gets {@code parameters}.
-   * @return the parameters
-   */
-  public Variable[] getParameters() {
-    return parameters;
-  }
-
-  /**
-   * Sets {@code parameters}.
-   * @param parameters the parameters to set
-   */
-  public void setParameters(Variable[] parameters) {
-    this.parameters = parameters;
+  public Cosine(String varName) {
+    super("Cosine", false, false, varName);
+    // TODO Auto-generated constructor stub
   }
   
-  public abstract Function derivative();
-  public abstract Function antiderivative();
-  public abstract double integrate(double a, double b);
-  public abstract double evaluate(double[] params);
+  /**
+   * This is the constructor for the Sine.
+   * 
+   * @param varName
+   */
+  public Cosine(Variable variable) {
+    super("Cosine", false, false, variable);
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Trigonometry#getInverseFunction()
+   */
+  @Override
+  public Class<?> getInverseFunction() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#derivative()
+   */
+  @Override
+  public Function derivative() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#antiderivative()
+   */
+  @Override
+  public Function antiderivative() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param a
+   * @param b
+   * @return
+   * @see com.sadofftext.Symbolic.Function#integrate(double, double)
+   */
+  @Override
+  public double integrate(double a, double b) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  /** 
+   * @param params
+   * @return
+   * @see com.sadofftext.Symbolic.Function#evaluate(double[])
+   */
+  @Override
+  public double evaluate(double[] params) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
 }

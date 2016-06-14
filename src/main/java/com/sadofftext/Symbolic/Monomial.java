@@ -174,103 +174,164 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Function implements Operations<Function>{
-  private String name;
-  private boolean injective;
-  private boolean surjective;
-  private boolean bijective;
-  private Variable[] parameters;
+public class Monomial extends Function {
+  private Variable term;
+  private Numeric exponent;
+  private Numeric coefficient;
   
-  public Function(String name, boolean injective, boolean surjective, Variable[] parameters){
-    this.name = name;
-    this.injective = injective;
-    this.surjective = surjective;
-    this.bijective = injective && surjective;
-    this.parameters = parameters;
+  /**
+   * This is the constructor for the Monomial.
+   * @param name
+   * @param injective
+   * @param surjective
+   * @param parameters
+   */
+  public Monomial(Variable term) {
+    super("Monomial of " + term.getName(), term.getExponent().toDouble() % 2 == 1, term.getExponent().toDouble() % 2 == 1 && term.getExponent().toDouble() > 0, new Variable[]{term});
+    this.term = term;
+    this.exponent = term.getExponent();
+    this.coefficient = term.getCoefficient();
   }
 
   /**
-   * Gets {@code name}.
-   * @return the name
+   * Gets {@code term}.
+   * @return the term
    */
-  public String getName() {
-    return name;
+  public Variable getTerm() {
+    return term;
   }
 
   /**
-   * Sets {@code name}.
-   * @param name the name to set
+   * Sets {@code term}.
+   * @param term the term to set
    */
-  public void setName(String name) {
-    this.name = name;
+  public void setTerm(Variable term) {
+    this.term = term;
   }
 
   /**
-   * Gets {@code injective}.
-   * @return the injective
+   * Gets {@code exponent}.
+   * @return the exponent
    */
-  public boolean isInjective() {
-    return injective;
+  public Numeric getExponent() {
+    return exponent;
   }
 
   /**
-   * Sets {@code injective}.
-   * @param injective the injective to set
+   * Sets {@code exponent}.
+   * @param exponent the exponent to set
    */
-  public void setInjective(boolean injective) {
-    this.injective = injective;
+  public void setExponent(Numeric exponent) {
+    this.exponent = exponent;
   }
 
   /**
-   * Gets {@code surjective}.
-   * @return the surjective
+   * Gets {@code coefficient}.
+   * @return the coefficient
    */
-  public boolean isSurjective() {
-    return surjective;
+  public Numeric getCoefficient() {
+    return coefficient;
   }
 
   /**
-   * Sets {@code surjective}.
-   * @param surjective the surjective to set
+   * Sets {@code coefficient}.
+   * @param coefficient the coefficient to set
    */
-  public void setSurjective(boolean surjective) {
-    this.surjective = surjective;
+  public void setCoefficient(Numeric coefficient) {
+    this.coefficient = coefficient;
   }
 
-  /**
-   * Gets {@code bijective}.
-   * @return the bijective
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#derivative()
    */
-  public boolean isBijective() {
-    return bijective;
+  @Override
+  public Function derivative() {
+    Numeric dExp = getTerm().getExponent().subtract(Numeric.ONE);
+    Numeric dCoeff = getTerm().getCoefficient().add(Numeric.ONE);
+    Variable term = new Variable(dCoeff, getTerm().getName(), dExp);
+    return new Monomial(term);
   }
 
-  /**
-   * Sets {@code bijective}.
-   * @param bijective the bijective to set
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#antiderivative()
    */
-  public void setBijective(boolean bijective) {
-    this.bijective = bijective;
+  @Override
+  public Function antiderivative() {
+    Numeric dExp = getTerm().getExponent().add(Numeric.ONE);
+    Numeric dCoeff = getTerm().getCoefficient().divide(dExp);
+    Variable term = new Variable(dCoeff, getTerm().getName(), dExp);
+    return new Monomial(term);
   }
 
-  /**
-   * Gets {@code parameters}.
-   * @return the parameters
+  /** 
+   * @param a
+   * @param b
+   * @return
+   * @see com.sadofftext.Symbolic.Function#integrate(double, double)
    */
-  public Variable[] getParameters() {
-    return parameters;
+  @Override
+  public double integrate(double a, double b) {
+    Function ad = antiderivative();
+    double fa = ad.evaluate(new double[]{a});
+    double fb = ad.evaluate(new double[]{b});
+    return fb - fa;
   }
 
-  /**
-   * Sets {@code parameters}.
-   * @param parameters the parameters to set
+  /** 
+   * @param params
+   * @return
+   * @see com.sadofftext.Symbolic.Function#evaluate(double[])
    */
-  public void setParameters(Variable[] parameters) {
-    this.parameters = parameters;
+  @Override
+  public double evaluate(double[] params) {
+    double param = params[0];
+    return getCoefficient().toDouble() * Math.pow(param, getExponent().toDouble());
   }
-  
-  public abstract Function derivative();
-  public abstract Function antiderivative();
-  public abstract double integrate(double a, double b);
-  public abstract double evaluate(double[] params);
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
+   */
+  @Override
+  public Function add(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
+   */
+  @Override
+  public Function subtract(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
+   */
+  @Override
+  public Function multiply(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
+   */
+  @Override
+  public Function divide(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

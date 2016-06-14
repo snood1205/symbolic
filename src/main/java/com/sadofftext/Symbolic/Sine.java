@@ -174,103 +174,122 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Function implements Operations<Function>{
-  private String name;
-  private boolean injective;
-  private boolean surjective;
-  private boolean bijective;
-  private Variable[] parameters;
+public class Sine extends Trigonometry {
   
-  public Function(String name, boolean injective, boolean surjective, Variable[] parameters){
-    this.name = name;
-    this.injective = injective;
-    this.surjective = surjective;
-    this.bijective = injective && surjective;
-    this.parameters = parameters;
-  }
-
   /**
-   * Gets {@code name}.
-   * @return the name
+   * This is the constructor for the Sine.
+   * 
+   * @param varName
    */
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * Sets {@code name}.
-   * @param name the name to set
-   */
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /**
-   * Gets {@code injective}.
-   * @return the injective
-   */
-  public boolean isInjective() {
-    return injective;
-  }
-
-  /**
-   * Sets {@code injective}.
-   * @param injective the injective to set
-   */
-  public void setInjective(boolean injective) {
-    this.injective = injective;
-  }
-
-  /**
-   * Gets {@code surjective}.
-   * @return the surjective
-   */
-  public boolean isSurjective() {
-    return surjective;
-  }
-
-  /**
-   * Sets {@code surjective}.
-   * @param surjective the surjective to set
-   */
-  public void setSurjective(boolean surjective) {
-    this.surjective = surjective;
-  }
-
-  /**
-   * Gets {@code bijective}.
-   * @return the bijective
-   */
-  public boolean isBijective() {
-    return bijective;
-  }
-
-  /**
-   * Sets {@code bijective}.
-   * @param bijective the bijective to set
-   */
-  public void setBijective(boolean bijective) {
-    this.bijective = bijective;
-  }
-
-  /**
-   * Gets {@code parameters}.
-   * @return the parameters
-   */
-  public Variable[] getParameters() {
-    return parameters;
-  }
-
-  /**
-   * Sets {@code parameters}.
-   * @param parameters the parameters to set
-   */
-  public void setParameters(Variable[] parameters) {
-    this.parameters = parameters;
+  public Sine(String varName) {
+    super("Sine", false, false, varName);
+    setVarName(varName);
   }
   
-  public abstract Function derivative();
-  public abstract Function antiderivative();
-  public abstract double integrate(double a, double b);
-  public abstract double evaluate(double[] params);
+  /**
+   * This is the constructor for the Sine.
+   * 
+   * @param varName
+   */
+  public Sine(Variable variable) {
+    super("Sine", false, false, variable);
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Trigonometry#getInverseFunction()
+   */
+  @Override
+  public Class<?> getInverseFunction() {
+    return Cosecant.class;
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#derivative()
+   */
+  @Override
+  public Function derivative() {
+    Function cos = new Cosine(getParameters()[0]);
+    Function par = new Monomial(getParameters()[0]).derivative();
+    return par.multiply(cos);
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#antiderivative()
+   */
+  @Override
+  public Function antiderivative() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param a
+   * @param b
+   * @return
+   * @see com.sadofftext.Symbolic.Function#integrate(double, double)
+   */
+  @Override
+  public double integrate(double a, double b) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  /** 
+   * @param params
+   * @return
+   * @see com.sadofftext.Symbolic.Function#evaluate(double[])
+   */
+  @Override
+  public double evaluate(double[] params) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
+   */
+  @Override
+  public Function add(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
+   */
+  @Override
+  public Function subtract(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
+   */
+  @Override
+  public Function multiply(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o
+   * @return
+   * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
+   */
+  @Override
+  public Function divide(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

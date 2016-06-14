@@ -175,6 +175,7 @@ package com.sadofftext.Symbolic;
  *
  */
 public abstract class Trigonometry extends Function {
+  private String varName;
 
   /**
    * This is the constructor for the Trigonometry.
@@ -185,7 +186,36 @@ public abstract class Trigonometry extends Function {
    */
   public Trigonometry(String name, boolean injective, boolean surjective, String varName) {
     super(name, injective, surjective, new Variable[]{new Variable(varName)});
+    this.varName = varName;
   }
   
-  public abstract Trigonometry getInverseFunction();
+  /**
+   * This is the constructor for the Trigonometry.
+   * @param name
+   * @param injective
+   * @param surjective
+   * @param parameters
+   */
+  public Trigonometry(String name, boolean injective, boolean surjective, Variable variable) {
+    super(name, injective, surjective, new Variable[]{variable});
+    this.varName = variable.getName();
+  }
+  
+  public abstract Class<?> getInverseFunction();
+
+  /**
+   * Gets {@code varName}.
+   * @return the varName
+   */
+  public String getVarName() {
+    return varName;
+  }
+
+  /**
+   * Sets {@code varName}.
+   * @param varName the varName to set
+   */
+  public void setVarName(String varName) {
+    this.varName = varName;
+  }
 }

@@ -339,4 +339,22 @@ public class RationalNumber extends Numeric {
       }
     } 
   }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#toInteger()
+   */
+  @Override
+  public int toInteger() {
+    return getNumerator() / getDenominator();
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#toDouble()
+   */
+  @Override
+  public double toDouble() {
+    return (double)getNumerator() / (double)getDenominator();
+  }
 }

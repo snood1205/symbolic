@@ -174,103 +174,68 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Function implements Operations<Function>{
-  private String name;
-  private boolean injective;
-  private boolean surjective;
-  private boolean bijective;
-  private Variable[] parameters;
-  
-  public Function(String name, boolean injective, boolean surjective, Variable[] parameters){
-    this.name = name;
-    this.injective = injective;
-    this.surjective = surjective;
-    this.bijective = injective && surjective;
-    this.parameters = parameters;
-  }
+public class Cosecant extends Trigonometry {
 
   /**
-   * Gets {@code name}.
-   * @return the name
+   * This is the constructor for the Cosecant.
+   * 
+   * @param varName
    */
-  public String getName() {
-    return name;
+  public Cosecant(String varName) {
+    super("Cosecant", false, false, varName);
+    // TODO Auto-generated constructor stub
   }
 
-  /**
-   * Sets {@code name}.
-   * @param name the name to set
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Trigonometry#getInverseFunction()
    */
-  public void setName(String name) {
-    this.name = name;
+  @Override
+  public Class<?> getInverseFunction() {
+    return Sine.class;
   }
 
-  /**
-   * Gets {@code injective}.
-   * @return the injective
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#derivative()
    */
-  public boolean isInjective() {
-    return injective;
+  @Override
+  public Function derivative() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
-  /**
-   * Sets {@code injective}.
-   * @param injective the injective to set
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Function#antiderivative()
    */
-  public void setInjective(boolean injective) {
-    this.injective = injective;
+  @Override
+  public Function antiderivative() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
-  /**
-   * Gets {@code surjective}.
-   * @return the surjective
+  /** 
+   * @param a
+   * @param b
+   * @return
+   * @see com.sadofftext.Symbolic.Function#integrate(double, double)
    */
-  public boolean isSurjective() {
-    return surjective;
+  @Override
+  public double integrate(double a, double b) {
+    // TODO Auto-generated method stub
+    return 0;
   }
 
-  /**
-   * Sets {@code surjective}.
-   * @param surjective the surjective to set
+  /** 
+   * @param params
+   * @return
+   * @see com.sadofftext.Symbolic.Function#evaluate(double[])
    */
-  public void setSurjective(boolean surjective) {
-    this.surjective = surjective;
+  @Override
+  public double evaluate(double[] params) {
+    // TODO Auto-generated method stub
+    return 0;
   }
 
-  /**
-   * Gets {@code bijective}.
-   * @return the bijective
-   */
-  public boolean isBijective() {
-    return bijective;
-  }
-
-  /**
-   * Sets {@code bijective}.
-   * @param bijective the bijective to set
-   */
-  public void setBijective(boolean bijective) {
-    this.bijective = bijective;
-  }
-
-  /**
-   * Gets {@code parameters}.
-   * @return the parameters
-   */
-  public Variable[] getParameters() {
-    return parameters;
-  }
-
-  /**
-   * Sets {@code parameters}.
-   * @param parameters the parameters to set
-   */
-  public void setParameters(Variable[] parameters) {
-    this.parameters = parameters;
-  }
-  
-  public abstract Function derivative();
-  public abstract Function antiderivative();
-  public abstract double integrate(double a, double b);
-  public abstract double evaluate(double[] params);
 }

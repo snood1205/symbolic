@@ -187,4 +187,7 @@ public abstract class Numeric implements Operations<Numeric>, Comparable<Numeric
     }
   }
   
+  public abstract int toInteger();
+  public abstract double toDouble();
+  
 }

@@ -166,6 +166,7 @@
  */
 package com.sadofftext.Symbolic;
 
+import static java.lang.Math.toIntExact;
 /**
  * This type is the {@code long} type in the Numeric hierarchy.
  *
@@ -248,6 +249,24 @@ public class LongType extends IntegericType<Long> {
   public Numeric getNumber() {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#toInteger()
+   */
+  @Override
+  public int toInteger() {
+    return toIntExact(getInteger());
+  }
+
+  /** 
+   * @return
+   * @see com.sadofftext.Symbolic.Numeric#toDouble()
+   */
+  @Override
+  public double toDouble() {
+    return getInteger();
   }
 
 }
