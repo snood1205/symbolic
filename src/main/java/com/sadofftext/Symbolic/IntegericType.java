@@ -174,161 +174,44 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public class RationalNumber extends Numeric {
-  /** Holds the numerator of the fraction */
-  private int numerator;
-  /** Holds the denominator of the fraction. May not be 0 */
-  private int denominator;
+public abstract class IntegericType<T extends Number> extends Numeric {
+  private T integer;
+  private NumberType type;
   
-  /**
-   * Gets {@code numerator}.
-   * @return the numerator
-   */
-  public int getNumerator() {
-    return numerator;
+  public IntegericType(T integer){
+    this.integer = integer;
+    this.type = NumberType.classify(integer);
   }
 
   /**
-   * Sets {@code numerator}.
-   * @param numerator the numerator to set
+   * Gets {@code integer}.
+   * @return the integer
    */
-  public void setNumerator(int numerator) {
-    this.numerator = numerator;
+  public T getInteger() {
+    return integer;
   }
 
   /**
-   * Gets {@code denominator}.
-   * @return the denominator
+   * Sets {@code integer}.
+   * @param integer the integer to set
    */
-  public int getDenominator() {
-    return denominator;
+  public void setInteger(T integer) {
+    this.integer = integer;
+  }
+ 
+  /**
+   * Gets {@code type}.
+   * @return the type
+   */
+  public NumberType getType() {
+    return type;
   }
 
   /**
-   * Sets {@code denominator}.
-   * @param denominator the denominator to set
+   * Sets {@code type}.
+   * @param type the type to set
    */
-  public void setDenominator(int denominator) throws IllegalArgumentException {
-    if(denominator == 0){
-      throw new IllegalArgumentException("Denominator may not be 0");
-    }
-    this.denominator = denominator;
-  }
-
-  /**
-   * This is the constructor for the RationalNumber. This creates a number in the format:
-   * <sup><code>num</code></sup>&frasl;<sub><code>den</code></sub> where {@code num} is the
-   * numerator and {@code den} is the denominator. 
-   * @param numerator the numerator of the fraction
-   * @param denominator the denominator of the fraction. This may not be 0.
-   * @throws IllegalArgumentException thrown is 0 is passed as the denominator
-   */
-  public RationalNumber(int numerator, int denominator) throws IllegalArgumentException{
-    if(denominator == 0){
-      throw new IllegalArgumentException("Denominator may not equal 0");
-    }
-    this.numerator = numerator;
-    this.denominator = denominator;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
-   */
-  @Override
-  public Numeric add(Numeric o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
-   */
-  @Override
-  public Numeric subtract(Numeric o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
-   */
-  @Override
-  public Numeric multiply(Numeric o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @param o
-   * @return
-   * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
-   */
-  @Override
-  public Numeric divide(Numeric o) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  /** 
-   * @return
-   * @see com.sadofftext.Symbolic.Numeric#getNumber()
-   */
-  @Override
-  public Numeric getNumber() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-  
-  public static RationalNumber rationalize(Number n){
-    if((double)n % 1 == 0){
-      return new RationalNumber((int)n, 1);
-    }
-    int i = 0;
-    while((Math.pow(10, i)*(double)n) % 1 != 0){
-      i++;
-    }
-    return new RationalNumber((int)((double)n*Math.pow(10, i)), (int)Math.pow(10, i));
-  }
-  
-  public static RationalNumber rationalize(IntegericType n){
-    return new RationalNumber((int)n.getInteger(), 1);
-  }
-
-  /**
-   * @param n
-   * @return
-   * @see java.lang.Comparable#compareTo(java.lang.Object)
-   */
-  @Override
-  public int compareTo(Numeric n) {
-    if(n instanceof RationalNumber){
-      RationalNumber r = (RationalNumber) n;
-      int rThis = r.getNumerator() * getDenominator();
-      int thisR = r.getDenominator() * getNumerator();
-      if(rThis > thisR){
-        return 1;
-      } else if(thisR > rThis){
-        return -1;
-      } else{
-        return 0;
-      }
-    } else{
-      IntegericType i = (IntegericType) n;
-      int iThis = (int)i.getInteger() * getDenominator();
-      int thisI = getNumerator();
-      if(iThis > thisI){
-        return 1;
-      } else if(thisI > iThis){
-        return -1;
-      } else{
-        return 0;
-      }
-    } 
+  public void setType(NumberType type) {
+    this.type = type;
   }
 }

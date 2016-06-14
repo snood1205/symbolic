@@ -166,8 +166,6 @@
  */
 package com.sadofftext.Symbolic;
 
-import java.lang.reflect.Type;
-
 /**
  *
  *
@@ -176,45 +174,15 @@ import java.lang.reflect.Type;
  * @version 1.0
  *
  */
-public class IntegerType extends Numeric {
-  private Number integer;
-  private NumberType type;
-  
-  public IntegerType(Number integer){
-    this.integer = integer;
-    this.type = NumberType.classify(integer);
-  }
+public class IntegerType extends IntegericType<Integer> {
 
   /**
-   * Gets {@code integer}.
-   * @return the integer
+   * This is the constructor for the IntegerType.
+   * @param integer
    */
-  public Number getInteger() {
-    return integer;
-  }
-
-  /**
-   * Sets {@code integer}.
-   * @param integer the integer to set
-   */
-  public void setInteger(Number integer) {
-    this.integer = integer;
-  }
- 
-  /**
-   * Gets {@code type}.
-   * @return the type
-   */
-  public NumberType getType() {
-    return type;
-  }
-
-  /**
-   * Sets {@code type}.
-   * @param type the type to set
-   */
-  public void setType(NumberType type) {
-    this.type = type;
+  public IntegerType(Integer integer) {
+    super(integer);
+    // TODO Auto-generated constructor stub
   }
 
   /** 
@@ -224,12 +192,7 @@ public class IntegerType extends Numeric {
    */
   @Override
   public Numeric add(Numeric o) {
-    if(o instanceof IntegerType){
-      IntegerType i = (IntegerType) o;
-      Type iType = i.getType().getType();
-      Type type = getType().getType();
-      return new IntegerType((iType.getClass()).cast(i) + (type)getInteger());
-    }
+    // TODO Auto-generated method stub
     return null;
   }
 
@@ -286,9 +249,5 @@ public class IntegerType extends Numeric {
     // TODO Auto-generated method stub
     return null;
   }
-  
-  public <T> T cast(){
-    Type type = getClass();
-    
-  }
+
 }
