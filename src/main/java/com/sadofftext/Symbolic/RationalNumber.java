@@ -297,7 +297,9 @@ public class RationalNumber extends Numeric {
   }
   
   public static RationalNumber rationalize(IntegericType<?> n){
-    return new RationalNumber((int)n.getInteger(), 1);
+    return null;
+    // TODO: Work on method
+    // return new RationalNumber((int)n.getInteger(), 1);
   }
 
   /**
@@ -319,7 +321,8 @@ public class RationalNumber extends Numeric {
         return 0;
       }
     } else{
-      IntegericType<?> i = (IntegericType<?>) n;
+      // TODO: Have this not be dumb
+      IntegerType i = (IntegerType) n;
       int iThis = (int)i.getInteger() * getDenominator();
       int thisI = getNumerator();
       if(iThis > thisI){
