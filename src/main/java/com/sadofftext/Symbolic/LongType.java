@@ -178,7 +178,7 @@ public class LongType extends IntegericType<Long> {
 
   /**
    * This is the constructor for the LongType.
-   * @param integer
+   * @param n the long value to set
    */
   public LongType(Number n) {
     super(n.longValue());
@@ -186,8 +186,8 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the Numeric value to be added to this
+   * @return the sum of the long number and the provided parameter
    * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
    */
   @Override
@@ -197,8 +197,8 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the Numeric value to be subtracted from this
+   * @return the difference of the long number and the provided parameter
    * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
    */
   @Override
@@ -208,8 +208,8 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the Numeric value to be multiplied by this
+   * @return the product of the long number and the provided parameter
    * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
    */
   @Override
@@ -219,8 +219,8 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the Numeric value to divide this
+   * @return the quotient of the long number and the provided parameter
    * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
    */
   @Override
@@ -230,8 +230,8 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the number to be compared to this
+   * @return 1 if the value is greater than the parameter, 0 if they are equal, and -1 if the parameter is greater than the value
    * @see java.lang.Comparable#compareTo(java.lang.Object)
    */
   @Override
@@ -241,7 +241,7 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @return
+   * @return the number
    * @see com.sadofftext.Symbolic.Numeric#getNumber()
    */
   @Override
