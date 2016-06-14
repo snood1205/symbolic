@@ -392,7 +392,9 @@ public class Variable implements Operations<Variable>{
   }
 
   /** 
-   * @return
+   * Returns a hash code for this variable.
+   * 
+   * @return a hash code value for this object.
    * @see java.lang.Object#hashCode()
    */
   @Override
@@ -406,8 +408,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /** 
-   * @param obj
-   * @return
+   * Checks equality against another object
+   * 
+   * @param obj the object to check equality against
+   * @return true if the objects are the same false otherwise
    * @see java.lang.Object#equals(java.lang.Object)
    */
   @Override
@@ -438,7 +442,9 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @return
+   * Returns the length of the string
+   * 
+   * @return the length of the string
    * @see java.lang.String#length()
    */
   public int length() {
@@ -446,7 +452,9 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @return
+   * Returns if the string is empty
+   * 
+   * @return true if the string is empty
    * @see java.lang.String#isEmpty()
    */
   public boolean isEmpty() {
@@ -454,8 +462,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param index
-   * @return
+   * Returns the char at the specified index.
+   * 
+   * @param index the index to the char value
+   * @return the char at the specified index
    * @see java.lang.String#charAt(int)
    */
   public char charAt(int index) {
@@ -463,8 +473,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param index
-   * @return
+   * Returns the character (Unicode code point) at the specified index. The index refers to char values (Unicode code units) and ranges from 0 to length()- 1.
+   * 
+   * @param index the index to the char values
+   * @return the code point value of the character at the index
    * @see java.lang.String#codePointAt(int)
    */
   public int codePointAt(int index) {
@@ -472,8 +484,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param index
-   * @return
+   * Returns the character (Unicode code point) before the specified index. The index refers to char values (Unicode code units) and ranges from 1 to length.
+   * 
+   * @param index the index following the code point that should be returned
+   * @return the Unicode code point value before the given index.
    * @see java.lang.String#codePointBefore(int)
    */
   public int codePointBefore(int index) {
@@ -481,9 +495,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param beginIndex
-   * @param endIndex
-   * @return
+   * Returns the number of Unicode code points in the specified text range of this String. The text range begins at the specified beginIndex and extends to the char at index endIndex - 1. Thus the length (in chars) of the text range is endIndex-beginIndex. Unpaired surrogates within the text range count as one code point each.
+   * 
+   * @param beginIndex the index to the first char of the text range
+   * @param endIndex the index after the last char of the text range
+   * @return the number of Unicode code points in the specified text range
    * @see java.lang.String#codePointCount(int, int)
    */
   public int codePointCount(int beginIndex, int endIndex) {
@@ -491,9 +507,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param index
-   * @param codePointOffset
-   * @return
+   * Returns the index within this String that is offset from the given index by codePointOffset code points. Unpaired surrogates within the text range given by index and codePointOffset count as one code point each.
+   * 
+   * @param index the index to be offset
+   * @param codePointOffset the offset in code points
+   * @return the index within this String
    * @see java.lang.String#offsetByCodePoints(int, int)
    */
   public int offsetByCodePoints(int index, int codePointOffset) {
@@ -501,10 +519,20 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param srcBegin
-   * @param srcEnd
-   * @param dst
-   * @param dstBegin
+   * Copies characters from this string into the destination character array.
+   * 
+   * @param srcBegin Index of the first character in the string to copy
+   * @param srcEnd Index of the last character in the string to copy
+   * @param dst The destination array
+   * @param dstBegin The start offset in the destination array
+   * @throws IndexOutOfBoundsException if:
+   * <ul>
+   *    <li><code>srcBegin</code> is negative</li>
+   *    <li><code>srcBegin</code> is greater than <code>srcEnd</code></li>
+   *    <li><code>srcEnd</code> is greater than the length of this String</li>
+   *    <li><code>dstBegin</code> is negative</li>
+   *    <li><code>dstBegin+(srcEnd-srcBegin)</code> is larger than dst.length</li>
+   * </ul>
    * @see java.lang.String#getChars(int, int, char[], int)
    */
   public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) {
@@ -512,21 +540,34 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param srcBegin
-   * @param srcEnd
-   * @param dst
-   * @param dstBegin
+   * This method does not properly convert characters into bytes. As of JDK 1.1, the preferred way to do this is via the getBytes() method, which uses the platform's default charset.
+   * 
+   * @param srcBegin Index of the first character in the string to copy
+   * @param srcEnd Index of the last character in the string to copy
+   * @param dst The destination array
+   * @param dstBegin The start offset in the destination array
    * @deprecated
+   * @throws IndexOutOfBoundsException if:
+   * <ul>
+   *    <li><code>srcBegin</code> is negative</li>
+   *    <li><code>srcBegin</code> is greater than <code>srcEnd</code></li>
+   *    <li><code>srcEnd</code> is greater than the length of this String</li>
+   *    <li><code>dstBegin</code> is negative</li>
+   *    <li><code>dstBegin+(srcEnd-srcBegin)</code> is larger than dst.length</li>
+   * </ul>
    * @see java.lang.String#getBytes(int, int, byte[], int)
    */
-  public void getBytes(int srcBegin, int srcEnd, byte[] dst, int dstBegin) {
+  @Deprecated
+  public void getBytes(int srcBegin, int srcEnd, byte[] dst, int dstBegin) throws IndexOutOfBoundsException {
     getName().getBytes(srcBegin, srcEnd, dst, dstBegin);
   }
 
   /**
-   * @param charsetName
-   * @return
-   * @throws UnsupportedEncodingException
+   * Encodes this String into a sequence of bytes using the specified charset, storing the result into a new byte array.
+   * 
+   * @param charsetName the charset to use
+   * @return the string encoded into a byte array
+   * @throws UnsupportedEncodingException thrown if the encoding specified is unsupported
    * @see java.lang.String#getBytes(java.lang.String)
    */
   public byte[] getBytes(String charsetName) throws UnsupportedEncodingException {
@@ -534,8 +575,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param charset
-   * @return
+   * Encodes this String into a sequence of bytes using the specified charset, storing the result into a new byte array.
+   * 
+   * @param charset the charset to use
+   * @return the string encoded into a byte array
    * @see java.lang.String#getBytes(java.nio.charset.Charset)
    */
   public byte[] getBytes(Charset charset) {
@@ -543,7 +586,9 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @return
+   * Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.
+   * 
+   * @return the string encoded into a byte array 
    * @see java.lang.String#getBytes()
    */
   public byte[] getBytes() {
@@ -551,8 +596,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param sb
-   * @return
+   * Checks equality against a StringBuffer. Equivalent to checking {@code equals(sb.toString)}.
+   * 
+   * @param sb the StringBuffer to check
+   * @return true if they are equal in content.
    * @see java.lang.String#contentEquals(java.lang.StringBuffer)
    */
   public boolean contentEquals(StringBuffer sb) {
@@ -560,8 +607,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param cs
-   * @return
+   * Checks equality against a CharSequence
+   * 
+   * @param cs the CharSequqence to check equality against
+   * @return true if the CharSequence and string have the same contents.
    * @see java.lang.String#contentEquals(java.lang.CharSequence)
    */
   public boolean contentEquals(CharSequence cs) {
@@ -569,8 +618,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param anotherString
-   * @return
+   * Checks equality while ignoring case
+   * 
+   * @param anotherString the string to check equality against
+   * @return true if the two strings are equal ignoring case.
    * @see java.lang.String#equalsIgnoreCase(java.lang.String)
    */
   public boolean equalsIgnoreCase(String anotherString) {
@@ -578,8 +629,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param anotherString
-   * @return
+   * Compares two strings lexicographically. The comparison is based on the Unicode value of each character in the strings. The character sequence represented by this String object is compared lexicographically to the character sequence represented by the argument string. The result is a negative integer if this String object lexicographically precedes the argument string. The result is a positive integer if this String object lexicographically follows the argument string. The result is zero if the strings are equal; compareTo returns 0 exactly when the equals(Object) method would return true.
+   * 
+   * @param anotherString the string to compare to
+   * @return a negative integer, zero, or a positive integer as the specified String is greater than, equal to, or less than this String.
    * @see java.lang.String#compareTo(java.lang.String)
    */
   public int compareTo(String anotherString) {
@@ -587,8 +640,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param str
-   * @return
+   * Compares two strings lexicographically, ignoring case differences. This method returns an integer whose sign is that of calling compareTo with normalized versions of the strings where case differences have been eliminated by calling Character.toLowerCase(Character.toUpperCase(character)) on each character.
+   *
+   * @param str the string to compare
+   * @return  a negative integer, zero, or a positive integer as the specified String is greater than, equal to, or less than this String, ignoring case considerations.
    * @see java.lang.String#compareToIgnoreCase(java.lang.String)
    */
   public int compareToIgnoreCase(String str) {
@@ -596,11 +651,19 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param toffset
-   * @param other
-   * @param ooffset
-   * @param len
-   * @return
+   * Tests if two string regions are equal.
+   * A substring of this String object is compared to a substring of the argument other. The result is true if these substrings represent identical character sequences. The substring of this String object to be compared begins at index toffset and has length len. The substring of other to be compared begins at index ooffset and has length len. The result is false if and only if at least one of the following is true:
+   * <ul>
+   *   <li> {@code toffset} is negative.</li>
+   *   <li> {@code ooffset} is negative.</li>
+   *   <li> {@code toffset+len} is greater than the length of this String object. </li>
+   *   <li> {@code ooffset+len} is greater than the length of the other argument. </li>
+   *   <li> There is some nonnegative integer {@code k} less than {@code len} such that: {@code this.charAt(toffset + k) != other.charAt(ooffset + k)} </li>
+   * @param toffset the starting offset of the subregion in this string.
+   * @param other the string argument.
+   * @param ooffset the starting offset of the subregion in the string argument.
+   * @param len the number of strings to compare
+   * @return true if the region matches
    * @see java.lang.String#regionMatches(int, java.lang.String, int, int)
    */
   public boolean regionMatches(int toffset, String other, int ooffset, int len) {
@@ -608,12 +671,28 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param ignoreCase
-   * @param toffset
-   * @param other
-   * @param ooffset
-   * @param len
-   * @return
+   * Tests if two string regions are equal.
+   * A substring of this String object is compared to a substring of the argument other. The result is true if these substrings represent identical character sequences. The substring of this String object to be compared begins at index toffset and has length len. The substring of other to be compared begins at index ooffset and has length len. The result is false if and only if at least one of the following is true:
+   * <ul>
+   *   <li> {@code toffset} is negative.</li>
+   *   <li> {@code ooffset} is negative.</li>
+   *   <li> {@code toffset+len} is greater than the length of this String object. </li>
+   *   <li> {@code ooffset+len} is greater than the length of the other argument. </li>
+   *   <li> {@code ignoreCase} is false and there is some nonnegative integer {@code k} less than {@code len} such that: {@code this.charAt(toffset + k) != other.charAt(ooffset + k)} </li>
+   *   <li> ignoreCase is true and there is some nonnegative integer k less than len such that:
+   *  {@code Character.toLowerCase(this.charAt(toffset+k)) !=
+   *  Character.toLowerCase(other.charAt(ooffset+k))}
+   *
+   * and:
+   * {@code Character.toUpperCase(this.charAt(toffset+k)) !=
+   *     Character.toUpperCase(other.charAt(ooffset+k))}</li>
+   * </ul>
+   * @param ignoreCase if true, ignore case when comparing characters.
+   * @param toffset the starting offset of the subregion in this string.
+   * @param other the string argument.
+   * @param ooffset the starting offset of the subregion in the string argument.
+   * @param len the number of strings to compare
+   * @return true if the region matches
    * @see java.lang.String#regionMatches(boolean, int, java.lang.String, int, int)
    */
   public boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset,
@@ -622,9 +701,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param prefix
-   * @param toffset
-   * @return
+   * Checks if the string starts with the specified prefix and offset
+   * 
+   * @param prefix the prefix to check
+   * @param toffset the index to start at
+   * @return if the string starts with the prefix at that offset
    * @see java.lang.String#startsWith(java.lang.String, int)
    */
   public boolean startsWith(String prefix, int toffset) {
@@ -632,8 +713,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param prefix
-   * @return
+   * Checks if the string starts with the specified prefix
+   * 
+   * @param prefix the prefix to check
+   * @return if the string starts with that prefix
    * @see java.lang.String#startsWith(java.lang.String)
    */
   public boolean startsWith(String prefix) {
@@ -641,8 +724,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param suffix
-   * @return
+   * Checks if the string ends with the provided suffix
+   * 
+   * @param suffix the suffix to check
+   * @return if the string ends with the suffix
    * @see java.lang.String#endsWith(java.lang.String)
    */
   public boolean endsWith(String suffix) {
@@ -650,8 +735,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param ch
-   * @return
+   * Returns the index within this string of the first occurrence of the specified char.
+   * 
+   * @param ch the char to search for
+   * @return the index of the first occurrence of the specified char or -1 if there is no such occurrence.
    * @see java.lang.String#indexOf(int)
    */
   public int indexOf(int ch) {
@@ -659,9 +746,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param ch
-   * @param fromIndex
-   * @return
+   * Returns the index within this string of the first occurrence of the specified char, starting at the specified index searching forward.
+   * 
+   * @param ch the char to search for
+   * @param fromIndex the index to start from
+   * @return the index of the first occurrence of the specified char, searching forward from the specified index, or -1 if there is no such occurrence.
    * @see java.lang.String#indexOf(int, int)
    */
   public int indexOf(int ch, int fromIndex) {
@@ -669,8 +758,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param ch
-   * @return
+   * Returns the index within this string of the last occurrence of the specified char.
+   * 
+   * @param ch the char to search for
+   * @return the index of the last occurrence of the specified char or -1 if there is no such occurrence.
    * @see java.lang.String#lastIndexOf(int)
    */
   public int lastIndexOf(int ch) {
@@ -678,9 +769,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param ch
-   * @param fromIndex
-   * @return
+   * Returns the index within this string of the last occurrence of the specified char, searching backward starting at the specified index.
+   * 
+   * @param ch the char to search for
+   * @param fromIndex the index to start from
+   * @return the index of the last occurrence of the specified char, searching backward from the specified index, or -1 if there is no such occurrence.
    * @see java.lang.String#lastIndexOf(int, int)
    */
   public int lastIndexOf(int ch, int fromIndex) {
@@ -688,8 +781,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param str
-   * @return
+   * Returns the index within this string of the first occurrence of the specified substring.
+   * 
+   * @param str the substring to search for
+   * @return the index of the first occurrence of the specified substring or -1 if there is no such occurence.
    * @see java.lang.String#indexOf(java.lang.String)
    */
   public int indexOf(String str) {
@@ -697,9 +792,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param str
-   * @param fromIndex
-   * @return
+   * Returns the index within this string of the first occurrence of the specified substring, starting at the specified index searching forward.
+   * 
+   * @param str the substring to search for
+   * @param fromIndex the index to start from
+   * @return the index of the first occurrence of the specified substring, searching forward from the specified index, or -1 if there is no such occurrence.
    * @see java.lang.String#indexOf(java.lang.String, int)
    */
   public int indexOf(String str, int fromIndex) {
@@ -707,8 +804,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param str
-   * @return
+   * Returns the index within this string of the last occurrence of the specified substring.
+   * 
+   * @param str the substring to search for
+   * @return the index of the last occurrence of the specified substring or -1 if there is no such occurrence.
    * @see java.lang.String#lastIndexOf(java.lang.String)
    */
   public int lastIndexOf(String str) {
@@ -716,9 +815,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param str
-   * @param fromIndex
-   * @return
+   * Returns the index within this string of the last occurrence of the specified substring, searching backward starting at the specified index.
+   * 
+   * @param str the substring to search for
+   * @param fromIndex the index to start from
+   * @return the index of the last occurrence of the specified substring, searching backward from the specified index, or -1 if there is no such occurrence.
    * @see java.lang.String#lastIndexOf(java.lang.String, int)
    */
   public int lastIndexOf(String str, int fromIndex) {
@@ -726,8 +827,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param beginIndex
-   * @return
+   * Gets a substring from a string.
+   * 
+   * @param beginIndex the index to begin from
+   * @return a String from beginIndex to the end of the String.
    * @see java.lang.String#substring(int)
    */
   public String substring(int beginIndex) {
@@ -735,9 +838,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param beginIndex
-   * @param endIndex
-   * @return
+   * Gets a substring from a string.
+   * 
+   * @param beginIndex the index to start at
+   * @param endIndex the index to end at
+   * @return a String from beginIndex to endIndex
    * @see java.lang.String#substring(int, int)
    */
   public String substring(int beginIndex, int endIndex) {
@@ -745,9 +850,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param beginIndex
-   * @param endIndex
-   * @return
+   * Gets a CharSequence from a string.
+   * 
+   * @param beginIndex the index to start at
+   * @param endIndex the index to end at
+   * @return a CharSequence from beginIndex to endIndex
    * @see java.lang.String#subSequence(int, int)
    */
   public CharSequence subSequence(int beginIndex, int endIndex) {
@@ -755,8 +862,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param str
-   * @return
+   * Concatenates two strings
+   * 
+   * @param str the string to concatenate
+   * @return a concatenated string
    * @see java.lang.String#concat(java.lang.String)
    */
   public String concat(String str) {
@@ -764,9 +873,11 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
-   * @param oldChar
-   * @param newChar
-   * @return
+   * Replaces one char with another char
+   * 
+   * @param oldChar the char to replace
+   * @param newChar the replacement for the char
+   * @return a string where the oldchar is replaced by the new char
    * @see java.lang.String#replace(char, char)
    */
   public String replace(char oldChar, char newChar) {
@@ -774,6 +885,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Checks if the variable matches a regular expression.
+   * 
    * @param regex the regular expression to check if the string matches
    * @return if the string matches the pattern
    * @see java.lang.String#matches(java.lang.String)
@@ -783,6 +896,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Checks if the variable contains a char sequence
+   * 
    * @param s the sequence to check
    * @return if the variable name contains the sequence
    * @see java.lang.String#contains(java.lang.CharSequence)
@@ -792,6 +907,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Replace the first occurrence of a pattern with a string.
+   * 
    * @param regex the regular expression to replace 
    * @param replacement the replacement
    * @return a string with the first matching pattern replaced
@@ -802,6 +919,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Replaces all patterns with a string.
+   * 
    * @param regex the regular expression to replace
    * @param replacement the replacement
    * @return a string with all of the matching patterns replaced
@@ -812,8 +931,10 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Replaces a CharSequence with another CharSequence
+   * 
    * @param target the sequence of characters to replace
-   * @param replacement the sequence of characters that the chars will be replaced with
+   * @param replacement the replacement
    * @return a transformed char
    * @see java.lang.String#replace(java.lang.CharSequence, java.lang.CharSequence)
    */
@@ -822,6 +943,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Splits the string at the provided pattern a certain number of times.
+   * 
    * @param regex the regex to split the string
    * @param limit the number of times the string is to be split
    * @return a split string
@@ -833,6 +956,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Splits the string at the provided pattern
+   * 
    * @param regex the regular expression on which to split the string
    * @return a string split by the provided regex
    * @see java.lang.String#split(java.lang.String)
@@ -842,6 +967,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Turns the variable name to a locale specific lower case
+   * 
    * @param locale the locale of the user
    * @return the string into a locale based lower case
    * @see java.lang.String#toLowerCase(java.util.Locale)
@@ -853,6 +980,7 @@ public class Variable implements Operations<Variable>{
 
   /**
    * Turns the variable name to lower case
+   * 
    * @return the variable name in lower case
    * @see java.lang.String#toLowerCase()
    */
@@ -861,6 +989,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /**
+   * Turns the variable name into a locale specific upper case
+   * 
    * @param locale the locale of the user
    * @return turns the string into a locale based upper case
    * @see java.lang.String#toUpperCase(java.util.Locale)
@@ -872,6 +1002,7 @@ public class Variable implements Operations<Variable>{
 
   /**
    * The variable name in all upper case
+   * 
    * @return the variable name in all upper case
    * @see java.lang.String#toUpperCase()
    */
