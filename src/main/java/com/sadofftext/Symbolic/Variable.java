@@ -170,6 +170,15 @@ package com.sadofftext.Symbolic;
 /**
  * The class variable. This is used to represent a variable in a CAS.
  * As such 'x' can just be 'x' and not the typical: `int x = 2`.
+ * 
+ * Examples:
+ * <ul>
+ *  <li> 3x<sup>2</sup> &mdash; {@code new Variable(3, "x", 2);} </li>
+ *  <li> 3x &mdash; {@code new Variable(3, "x");} </li>
+ *  <li> x<sup>2</sup> &mdash; {@code new Variable("x", 2);} </li>
+ *  <li> x &mdash; {@code new Variable("x");} </li>
+ * </ul>
+ * 
  * @author Eli David Sadoff
  * @since 1.0
  * @version 1.0
@@ -185,8 +194,11 @@ public class Variable implements Operations<Variable>{
   
   /**
    * This is the convenience constructor for the Variable.
+   * This is to be used for a variable with a coefficient and exponent.
    * 
+   * @param coefficient the coefficient to set
    * @param name the name to set 
+   * @param exponent the exponent to set
    */
   public Variable(Numeric coefficient, String name, Numeric exponent){
     this.coefficient  = coefficient;
@@ -194,20 +206,77 @@ public class Variable implements Operations<Variable>{
     this.exponent = exponent;
   }
   
+  /**
+   * This is the convenience constructor for the Variable.
+   * This is to be used for a variable with a coefficient and exponent.
+   * 
+   * @param coefficient the coefficient to set
+   * @param name the name to set 
+   * @param exponent the exponent to set
+   */
+  public Variable(int coefficient, String name, int exponent){
+    this.coefficient  = new IntegerType(coefficient);
+    this.name = name;
+    this.exponent = new IntegerType(exponent);
+  }
+  
+  /**
+   * This is a constructor for a variable with a coefficient but no exponent.
+   * 
+   * @param coefficient the coefficient to set
+   * @param name the name to set 
+   */
   public Variable(Numeric coefficient, String name){
     this.coefficient = coefficient;
     this.name = name;
-    this.exponent = Numeric.toNumeric(1);
+    this.exponent = Numeric.ONE;
   }
   
+  /**
+   * This is a constructor for a variable with a coefficient but no exponent.
+   * 
+   * @param coefficient the coefficient to set
+   * @param name the name to set 
+   */
+  public Variable(int coefficient, String name){
+    this.coefficient = new IntegerType(coefficient);
+    this.name = name;
+    this.exponent = Numeric.ONE;
+  }
+  
+  /**
+   * This is a constructor for a variable with an exponent but no coefficient
+   * 
+   * @param name the name to set
+   * @param exponent the exponent to set
+   */
   public Variable(String name, Numeric exponent){
-    this.coefficient = Numeric.toNumeric(1);
+    this.coefficient = Numeric.ONE;
     this.name = name;
     this.exponent = exponent;
   }
   
-  public Variable(String name){
+  /**
+   * This is a constructor for a variable with an exponent but no coefficient
+   * 
+   * @param name the name to set
+   * @param exponent the exponent to set
+   */
+  public Variable(String name, int exponent){
+    this.coefficient = Numeric.ONE;
     this.name = name;
+    this.exponent = new IntegerType(exponent);
+  }
+  
+  /**
+   * This is the constructor for a variable with no exponent or coefficient.
+   * 
+   * @param name the name to set
+   */
+  public Variable(String name){
+    this.coefficient = Numeric.ONE;
+    this.name = name;
+    this.exponent = Numeric.ONE;
   }
   
   /**
@@ -258,6 +327,22 @@ public class Variable implements Operations<Variable>{
     this.exponent = exponent;
   }
 
+  /**
+   * This method gets the <code>TeX</code> formatting of a variable.
+   * @return a TeX formatted variable
+   */
+  public String getTeX(){
+    if(getExponent().equals(1) && getCoefficient().equals(1)){
+      return getName();
+    } else if(getExponent().equals(1)){
+      return getCoefficient().toString() + getName();
+    } else if(getCoefficient().equals(1)){
+      return getName() + "^{" + getExponent().toString() + "}";
+    } else{
+      return getCoefficient() + getName() + "^{" + getExponent().toString() + "}";
+    }
+  }
+  
   /** 
    * @param o
    * @return
