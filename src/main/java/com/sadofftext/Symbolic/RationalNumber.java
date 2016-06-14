@@ -295,8 +295,12 @@ public class RationalNumber extends Numeric {
     }
     return new RationalNumber((int)((double)n*Math.pow(10, i)), (int)Math.pow(10, i));
   }
+  
+  public static RationalNumber rationalize(IntegerType n){
+    return new RationalNumber((int)n.getInteger(), 1);
+  }
 
-  /** 
+  /**
    * @param n
    * @return
    * @see java.lang.Comparable#compareTo(java.lang.Object)

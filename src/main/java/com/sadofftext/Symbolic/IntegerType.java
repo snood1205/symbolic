@@ -176,9 +176,11 @@ package com.sadofftext.Symbolic;
  */
 public class IntegerType extends Numeric {
   private Number integer;
+  private NumberType type;
   
   public IntegerType(Number integer){
     this.integer = integer;
+    this.type = NumberType.classify(integer);
   }
 
   /**
@@ -196,6 +198,22 @@ public class IntegerType extends Numeric {
   public void setInteger(Number integer) {
     this.integer = integer;
   }
+ 
+  /**
+   * Gets {@code type}.
+   * @return the type
+   */
+  public NumberType getType() {
+    return type;
+  }
+
+  /**
+   * Sets {@code type}.
+   * @param type the type to set
+   */
+  public void setType(NumberType type) {
+    this.type = type;
+  }
 
   /** 
    * @param o
@@ -204,7 +222,10 @@ public class IntegerType extends Numeric {
    */
   @Override
   public Numeric add(Numeric o) {
-    // TODO Auto-generated method stub
+    if(o instanceof IntegerType){
+      IntegerType i = (IntegerType) o;
+      return new IntegerType((long)i.getInteger() + (long)getInteger());
+    }
     return null;
   }
 
