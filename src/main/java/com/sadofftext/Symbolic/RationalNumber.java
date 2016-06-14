@@ -232,8 +232,8 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o addand
+   * @return sum
    * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
    */
   @Override
@@ -243,8 +243,8 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o subtractor
+   * @return difference
    * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
    */
   @Override
@@ -254,8 +254,8 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o multiplicand
+   * @return product
    * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
    */
   @Override
@@ -265,8 +265,8 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o divisor
+   * @return quotient
    * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
    */
   @Override
@@ -276,7 +276,7 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @return
+   * @return Numeric value
    * @see com.sadofftext.Symbolic.Numeric#getNumber()
    */
   @Override
@@ -285,6 +285,11 @@ public class RationalNumber extends Numeric {
     return null;
   }
   
+  /**
+   * Turns Number into rational number
+   * @param n number to be transformed
+   * @return rational number
+   */
   public static RationalNumber rationalize(Number n){
     if(n.doubleValue() % 1 == 0){
       return new RationalNumber(n.intValue(), 1);
@@ -303,8 +308,8 @@ public class RationalNumber extends Numeric {
   }
 
   /**
-   * @param n
-   * @return
+   * @param n comparator
+   * @return 1, 0, -1
    * @see java.lang.Comparable#compareTo(java.lang.Object)
    */
   @Override

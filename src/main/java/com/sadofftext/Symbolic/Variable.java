@@ -344,8 +344,8 @@ public class Variable implements Operations<Variable>{
   }
   
   /** 
-   * @param o
-   * @return
+   * @param o added
+   * @return sum
    * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
    */
   @Override
@@ -355,8 +355,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o subtractor
+   * @return difference
    * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
    */
   @Override
@@ -366,8 +366,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o multiplicand 
+   * @return product
    * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
    */
   @Override
@@ -377,8 +377,8 @@ public class Variable implements Operations<Variable>{
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o divisor
+   * @return quotient
    * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
    */
   @Override

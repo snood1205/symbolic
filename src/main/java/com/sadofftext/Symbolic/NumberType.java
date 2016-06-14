@@ -177,7 +177,8 @@ import java.util.concurrent.atomic.LongAccumulator;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
- * <table>
+ * This is an enum for Number classes.
+ * <table summary="Values">
  *   <tr>
  *     <th><code>name</code></th>
  *     <th><code>integericType</code></th>
