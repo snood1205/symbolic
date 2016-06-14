@@ -175,7 +175,7 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public class Variable implements Operations<Variable> {
+public class Variable implements Operations<Variable>{
   /** This holds the coefficient of the variable */
   private Numeric coefficient;
   /** This holds the name of the variable */

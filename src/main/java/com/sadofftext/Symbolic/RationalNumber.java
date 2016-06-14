@@ -296,4 +296,15 @@ public class RationalNumber extends Numeric {
     return new RationalNumber((int)((double)n*Math.pow(10, i)), (int)Math.pow(10, i));
   }
 
+  /** 
+   * @param o
+   * @return
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  @Override
+  public int compareTo(Numeric o) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
 }

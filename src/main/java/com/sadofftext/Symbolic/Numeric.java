@@ -174,7 +174,7 @@ package com.sadofftext.Symbolic;
  * @version 1.0
  *
  */
-public abstract class Numeric implements Operations<Numeric> {
+public abstract class Numeric implements Operations<Numeric>, Comparable<Numeric> {
   public abstract Numeric getNumber();
   public static Numeric toNumeric(Number n){
     NumberType type = NumberType.classify(n);

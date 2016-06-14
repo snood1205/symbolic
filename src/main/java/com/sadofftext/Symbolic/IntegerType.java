@@ -242,6 +242,17 @@ public class IntegerType extends Numeric {
   }
 
   /** 
+   * @param o
+   * @return
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  @Override
+  public int compareTo(Numeric o) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  /** 
    * @return
    * @see com.sadofftext.Symbolic.Numeric#getNumber()
    */
@@ -250,5 +261,4 @@ public class IntegerType extends Numeric {
     // TODO Auto-generated method stub
     return null;
   }
-
 }
