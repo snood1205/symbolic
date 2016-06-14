@@ -39,16 +39,17 @@ There are some guidelines which will make applying PRs easier for us:
 
 
 To actually contribute code:
-1. Fork this repo
-2. Create a branch with a descriptive name: `git checkout -b feature/new-feature`
-3. Comment your code using Javadoc
-4. Create comprehensive JUnit Tests (Version 4.12)
-5. Comment your JUnit Tets using Javadoc
-6. Run `mvn package test clean`
-7. Make sure nothing in the previous step failed
-8. Commit changes: `git commit -am 'Added [feature name]`
-9. Push changes: `git push origin feature/new-feature`
-10. Submit a pull request
+
+1. Fork this repo 
+2. Create a branch with a descriptive name: `git checkout -b feature/new-feature` 
+3. Comment your code using Javadoc 
+4. Create comprehensive JUnit Tests (Version 4.12) 
+5. Comment your JUnit Tets using Javadoc 
+6. Run `mvn package test clean` 
+7. Make sure nothing in the previous step failed 
+8. Commit changes: `git commit -am 'Added [feature name]` 
+9. Push changes: `git push origin feature/new-feature` 
+10. Submit a pull request 
 
 License
 -------
