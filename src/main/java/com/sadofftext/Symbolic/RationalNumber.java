@@ -341,7 +341,7 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @return
+   * @return integer value
    * @see com.sadofftext.Symbolic.Numeric#toInteger()
    */
   @Override
@@ -350,7 +350,7 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @return
+   * @return double value
    * @see com.sadofftext.Symbolic.Numeric#toDouble()
    */
   @Override

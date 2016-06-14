@@ -198,7 +198,7 @@ public class Cosine extends Trigonometry {
   }
 
   /** 
-   * @return
+   * @return inver
    * @see com.sadofftext.Symbolic.Trigonometry#getInverseFunction()
    */
   @Override
@@ -208,7 +208,7 @@ public class Cosine extends Trigonometry {
   }
 
   /** 
-   * @return
+   * @return derivateic
    * @see com.sadofftext.Symbolic.Function#derivative()
    */
   @Override
@@ -218,7 +218,7 @@ public class Cosine extends Trigonometry {
   }
 
   /** 
-   * @return
+   * @return antiderivatie
    * @see com.sadofftext.Symbolic.Function#antiderivative()
    */
   @Override
@@ -228,9 +228,9 @@ public class Cosine extends Trigonometry {
   }
 
   /** 
-   * @param a
-   * @param b
-   * @return
+   * @param a a
+   * @param b a
+   * @return a
    * @see com.sadofftext.Symbolic.Function#integrate(double, double)
    */
   @Override
@@ -240,14 +240,58 @@ public class Cosine extends Trigonometry {
   }
 
   /** 
-   * @param params
-   * @return
+   * @param params evaluate
+   * @return evaluate
    * @see com.sadofftext.Symbolic.Function#evaluate(double[])
    */
   @Override
-  public double evaluate(double[] params) {
+  public double evaluate(double... params) {
     // TODO Auto-generated method stub
     return 0;
+  }
+
+  /** 
+   * @param o add
+   * @return add
+   * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
+   */
+  @Override
+  public Function add(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o subtract
+   * @return subtract
+   * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
+   */
+  @Override
+  public Function subtract(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o multiply
+   * @return multiply
+   * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
+   */
+  @Override
+  public Function multiply(Function o) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  /** 
+   * @param o divide
+   * @return divide
+   * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
+   */
+  @Override
+  public Function divide(Function o) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

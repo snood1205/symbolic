@@ -250,7 +250,7 @@ public class IntegerType extends IntegericType<Integer> {
   }
 
   /** 
-   * @return
+   * @return integer value
    * @see com.sadofftext.Symbolic.Numeric#toInteger()
    */
   @Override
@@ -259,7 +259,7 @@ public class IntegerType extends IntegericType<Integer> {
   }
 
   /** 
-   * @return
+   * @return doubel value
    * @see com.sadofftext.Symbolic.Numeric#toDouble()
    */
   @Override

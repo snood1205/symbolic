@@ -252,7 +252,7 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @return
+   * @return integer value
    * @see com.sadofftext.Symbolic.Numeric#toInteger()
    */
   @Override
@@ -261,7 +261,7 @@ public class LongType extends IntegericType<Long> {
   }
 
   /** 
-   * @return
+   * @return double value
    * @see com.sadofftext.Symbolic.Numeric#toDouble()
    */
   @Override

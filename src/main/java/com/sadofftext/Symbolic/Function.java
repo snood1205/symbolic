@@ -272,5 +272,5 @@ public abstract class Function implements Operations<Function>{
   public abstract Function derivative();
   public abstract Function antiderivative();
   public abstract double integrate(double a, double b);
-  public abstract double evaluate(double[] params);
+  public abstract double evaluate(double... params);
 }

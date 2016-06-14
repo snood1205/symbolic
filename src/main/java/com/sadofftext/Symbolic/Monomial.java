@@ -181,10 +181,7 @@ public class Monomial extends Function {
   
   /**
    * This is the constructor for the Monomial.
-   * @param name
-   * @param injective
-   * @param surjective
-   * @param parameters
+   * @param term the term
    */
   public Monomial(Variable term) {
     super("Monomial of " + term.getName(), term.getExponent().toDouble() % 2 == 1, term.getExponent().toDouble() % 2 == 1 && term.getExponent().toDouble() > 0, new Variable[]{term});
@@ -242,7 +239,7 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @return
+   * @return derivative
    * @see com.sadofftext.Symbolic.Function#derivative()
    */
   @Override
@@ -254,7 +251,7 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @return
+   * @return antiderivative
    * @see com.sadofftext.Symbolic.Function#antiderivative()
    */
   @Override
@@ -266,9 +263,9 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @param a
-   * @param b
-   * @return
+   * @param a a value
+   * @param b b value
+   * @return definite integral
    * @see com.sadofftext.Symbolic.Function#integrate(double, double)
    */
   @Override
@@ -280,19 +277,19 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @param params
-   * @return
+   * @param params the x value
+   * @return evaluated funciton
    * @see com.sadofftext.Symbolic.Function#evaluate(double[])
    */
   @Override
-  public double evaluate(double[] params) {
+  public double evaluate(double... params) {
     double param = params[0];
     return getCoefficient().toDouble() * Math.pow(param, getExponent().toDouble());
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o addidotr 
+   * @return sum
    * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
    */
   @Override
@@ -302,8 +299,8 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o subtractor
+   * @return the difference
    * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
    */
   @Override
@@ -313,8 +310,8 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o multiplicand
+   * @return the product
    * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
    */
   @Override
@@ -324,8 +321,8 @@ public class Monomial extends Function {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o divisor
+   * @return the quotient
    * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
    */
   @Override

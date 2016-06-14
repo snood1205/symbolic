@@ -179,7 +179,7 @@ public class Sine extends Trigonometry {
   /**
    * This is the constructor for the Sine.
    * 
-   * @param varName
+   * @param varName the variable name
    */
   public Sine(String varName) {
     super("Sine", false, false, varName);
@@ -196,7 +196,7 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @return
+   * @return the inverse function's class
    * @see com.sadofftext.Symbolic.Trigonometry#getInverseFunction()
    */
   @Override
@@ -205,7 +205,7 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @return
+   * @return the derivative
    * @see com.sadofftext.Symbolic.Function#derivative()
    */
   @Override
@@ -216,7 +216,7 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @return
+   * @return the anti derivative
    * @see com.sadofftext.Symbolic.Function#antiderivative()
    */
   @Override
@@ -226,9 +226,9 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @param a
-   * @param b
-   * @return
+   * @param a the beginning value
+   * @param b the end value
+   * @return the integral from a to b
    * @see com.sadofftext.Symbolic.Function#integrate(double, double)
    */
   @Override
@@ -238,19 +238,19 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @param params
-   * @return
+   * @param params the parameter values at which to evaluate the function
+   * @return the function evaluated at the provided points
    * @see com.sadofftext.Symbolic.Function#evaluate(double[])
    */
   @Override
-  public double evaluate(double[] params) {
+  public double evaluate(double... params) {
     // TODO Auto-generated method stub
     return 0;
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the function to add to
+   * @return the sum
    * @see com.sadofftext.Symbolic.Operations#add(java.lang.Object)
    */
   @Override
@@ -260,8 +260,8 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the function to subtract by
+   * @return the difference
    * @see com.sadofftext.Symbolic.Operations#subtract(java.lang.Object)
    */
   @Override
@@ -271,8 +271,8 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the function to multiply by
+   * @return the product
    * @see com.sadofftext.Symbolic.Operations#multiply(java.lang.Object)
    */
   @Override
@@ -282,8 +282,8 @@ public class Sine extends Trigonometry {
   }
 
   /** 
-   * @param o
-   * @return
+   * @param o the function to divide by
+   * @return the quotient
    * @see com.sadofftext.Symbolic.Operations#divide(java.lang.Object)
    */
   @Override
