@@ -177,7 +177,98 @@ import java.util.concurrent.atomic.LongAccumulator;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
- *
+ * <table>
+ *   <tr>
+ *     <th><code>name</code></th>
+ *     <th><code>integericType</code></th>
+ *     <th><code>intType</code></th>
+ *     <th><code>longType</code></th>
+ *   </tr>
+ *   <tr>
+ *     <td>AtomicInteger</td>
+ *     <td>X</td>
+ *     <td>X</td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>AtomicLong</td>
+ *     <td>X</td>
+ *     <td></td>
+ *     <td>X</td>
+ *   </tr>
+ *   <tr>
+ *     <td>BigDecimal</td>
+ *     <td></td>
+ *     <td></td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>BigInteger</td>
+ *     <td>X</td>
+ *     <td></td>
+ *     <td>X</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Byte</td>
+ *     <td>X</td>
+ *     <td>X</td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>Double</td>
+ *     <td></td>
+ *     <td></td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>DoubleAccumulator</td>
+ *     <td></td>
+ *     <td></td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>DoubleAdder</td>
+ *     <td></td>
+ *     <td></td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>Float</td>
+ *     <td></td>
+ *     <td></td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>Integer</td>
+ *     <td>X</td>
+ *     <td>X</td>
+ *     <td></td>
+ *   </tr>
+ *   <tr>
+ *     <td>Long</td>
+ *     <td>X</td>
+ *     <td></td>
+ *     <td>X</td>
+ *   </tr>
+ *   <tr>
+ *     <td>LongAccumulator</td>
+ *     <td>X</td>
+ *     <td></td>
+ *     <td>X</td>
+ *   </tr>
+ *   <tr>
+ *     <td>LongAdder</td>
+ *     <td>X</td>
+ *     <td></td>
+ *     <td>X</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Short</td>
+ *     <td>X</td>
+ *     <td>X</td>
+ *     <td></td>
+ *   </tr>
+ * </table>
  *
  * @author Eli David Sadoff
  * @since 1.0
@@ -185,28 +276,35 @@ import java.util.concurrent.atomic.LongAdder;
  *
  */
 public enum NumberType {
-  ATOMICINTEGER("AtomicInteger", true, AtomicInteger.class), 
-  ATOMICLONG("AtomicLong", true, AtomicLong.class), 
-  BIGDECIMAL("BigDecimal", false, BigDecimal.class), 
-  BIGINTEGER("BigInteger", true, BigInteger.class), 
-  BYTE("Byte", true, Byte.class), 
-  DOUBLE("Double", false, Double.class), 
-  DOUBLEACCUMULATOR("DoubleAccumulator", false, DoubleAccumulator.class), 
-  DOUBLEADDER("DoubleAdder", false, DoubleAdder.class), 
-  FLOAT("Float", false, Float.class), 
-  INTEGER("Integer", true, Integer.class), 
-  LONG("Long", true, Long.class), 
-  LONGACCUMULATOR("LongAccumulator", true, LongAccumulator.class), 
-  LONGADDER("LongAdder", true, LongAdder.class), 
-  SHORT("Short", true, Short.class);
+  /**
+   * This is for the type {@link AtomicInteger}. 
+   */
+  ATOMICINTEGER("AtomicInteger", true, true, false, AtomicInteger.class), 
+  ATOMICLONG("AtomicLong", true, false, true, AtomicLong.class), 
+  BIGDECIMAL("BigDecimal", false, false, false, BigDecimal.class), 
+  BIGINTEGER("BigInteger", true, false, false, BigInteger.class), 
+  BYTE("Byte", true, true, false, Byte.class), 
+  DOUBLE("Double", false, false, false, Double.class), 
+  DOUBLEACCUMULATOR("DoubleAccumulator", false, false, false, DoubleAccumulator.class), 
+  DOUBLEADDER("DoubleAdder", false, false, false, DoubleAdder.class), 
+  FLOAT("Float", false, false, false, Float.class), 
+  INTEGER("Integer", true, true, false, Integer.class), 
+  LONG("Long", true, false, true, Long.class), 
+  LONGACCUMULATOR("LongAccumulator", true, false, true, LongAccumulator.class), 
+  LONGADDER("LongAdder", true, false, true, LongAdder.class), 
+  SHORT("Short", true, true, false, Short.class);
   
   private final String name;
+  private final boolean integericType;
   private final boolean intType;
+  private final boolean longType;
   private final Type type;
   
-  private NumberType(String name, boolean intType, Type type){
+  private NumberType(String name, boolean integericType, boolean intType, boolean longType, Type type){
     this.name = name;
+    this.integericType = integericType;
     this.intType = intType;
+    this.longType = longType;
     this.type = type;
   }
   
@@ -251,11 +349,27 @@ public enum NumberType {
   }
 
   /**
+   * Gets {@code integericType}.
+   * @return the integericType
+   */
+  public boolean isIntegericType() {
+    return integericType;
+  }
+  
+  /**
    * Gets {@code intType}.
    * @return the intType
    */
   public boolean isIntType() {
     return intType;
+  }
+
+  /**
+   * Gets {@code longType}.
+   * @return the longType
+   */
+  public boolean isLongType() {
+    return longType;
   }
 
   /**

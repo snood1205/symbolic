@@ -178,11 +178,10 @@ public class IntegerType extends IntegericType<Integer> {
 
   /**
    * This is the constructor for the IntegerType.
-   * @param integer
+   * @param n
    */
-  public IntegerType(Integer integer) {
-    super(integer);
-    // TODO Auto-generated constructor stub
+  public IntegerType(Number n) {
+    super((int) n);
   }
 
   /** 
