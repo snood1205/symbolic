@@ -166,6 +166,8 @@
  */
 package com.sadofftext.Symbolic;
 
+import java.lang.reflect.Type;
+
 /**
  *
  *
@@ -224,7 +226,9 @@ public class IntegerType extends Numeric {
   public Numeric add(Numeric o) {
     if(o instanceof IntegerType){
       IntegerType i = (IntegerType) o;
-      return new IntegerType((long)i.getInteger() + (long)getInteger());
+      Type iType = i.getType().getType();
+      Type type = getType().getType();
+      return new IntegerType((iType.getClass()).cast(i) + (type)getInteger());
     }
     return null;
   }
@@ -281,5 +285,10 @@ public class IntegerType extends Numeric {
   public Numeric getNumber() {
     // TODO Auto-generated method stub
     return null;
+  }
+  
+  public <T> T cast(){
+    Type type = getClass();
+    
   }
 }
