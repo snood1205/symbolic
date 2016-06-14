@@ -167,7 +167,7 @@
 package com.sadofftext.Symbolic;
 
 /**
- *
+ * This type is the {@code long} type in the Numeric hierarchy.
  *
  * @author Eli David Sadoff
  * @since 1.0
