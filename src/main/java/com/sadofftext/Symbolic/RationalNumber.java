@@ -297,14 +297,34 @@ public class RationalNumber extends Numeric {
   }
 
   /** 
-   * @param o
+   * @param n
    * @return
    * @see java.lang.Comparable#compareTo(java.lang.Object)
    */
   @Override
-  public int compareTo(Numeric o) {
-    // TODO Auto-generated method stub
-    return 0;
+  public int compareTo(Numeric n) {
+    if(n instanceof RationalNumber){
+      RationalNumber r = (RationalNumber) n;
+      int rThis = r.getNumerator() * getDenominator();
+      int thisR = r.getDenominator() * getNumerator();
+      if(rThis > thisR){
+        return 1;
+      } else if(thisR > rThis){
+        return -1;
+      } else{
+        return 0;
+      }
+    } else{
+      IntegerType i = (IntegerType) n;
+      int iThis = (int)i.getInteger() * getDenominator();
+      int thisI = getNumerator();
+      if(iThis > thisI){
+        return 1;
+      } else if(thisI > iThis){
+        return -1;
+      } else{
+        return 0;
+      }
+    } 
   }
-
 }
