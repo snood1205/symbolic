@@ -659,6 +659,7 @@ public class Variable implements Operations<Variable>{
    *   <li> {@code toffset+len} is greater than the length of this String object. </li>
    *   <li> {@code ooffset+len} is greater than the length of the other argument. </li>
    *   <li> There is some nonnegative integer {@code k} less than {@code len} such that: {@code this.charAt(toffset + k) != other.charAt(ooffset + k)} </li>
+   * </ul>
    * @param toffset the starting offset of the subregion in this string.
    * @param other the string argument.
    * @param ooffset the starting offset of the subregion in the string argument.
