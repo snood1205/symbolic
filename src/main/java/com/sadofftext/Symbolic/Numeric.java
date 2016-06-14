@@ -180,6 +180,8 @@ public abstract class Numeric implements Operations<Numeric> {
     NumberType type = NumberType.classify(n);
     if(type.isIntType()){
       return new IntegerType(n);
+    } else{
+      return RationalNumber.rationalize(n);
     }
   }
   

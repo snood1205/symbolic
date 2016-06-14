@@ -175,6 +175,11 @@ package com.sadofftext.Symbolic;
  *
  */
 public class IntegerType extends Numeric {
+  private Number n;
+  
+  public IntegerType(Number n){
+    this.n = n;
+  }
 
   /** 
    * @param o

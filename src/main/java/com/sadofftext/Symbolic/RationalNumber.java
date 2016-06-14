@@ -284,5 +284,16 @@ public class RationalNumber extends Numeric {
     // TODO Auto-generated method stub
     return null;
   }
+  
+  public static RationalNumber rationalize(Number n){
+    if((double)n % 1 == 0){
+      return new RationalNumber((int)n, 1);
+    }
+    int i = 0;
+    while((Math.pow(10, i)*(double)n) % 1 != 0){
+      i++;
+    }
+    return new RationalNumber((int)((double)n*Math.pow(10, i)), (int)Math.pow(10, i));
+  }
 
 }
