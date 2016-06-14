@@ -189,7 +189,7 @@ public class Variable implements Operations<Variable> {
    * @param name the name to set 
    */
   public Variable(Numeric coefficient, String name, Numeric exponent){
-    this.coefficient = coefficient;
+    this.coefficient  = coefficient;
     this.name = name;
     this.exponent = exponent;
   }
@@ -200,8 +200,16 @@ public class Variable implements Operations<Variable> {
     this.exponent = Numeric.toNumeric(1);
   }
   
-  public 
-
+  public Variable(String name, Numeric exponent){
+    this.coefficient = Numeric.toNumeric(1);
+    this.name = name;
+    this.exponent = exponent;
+  }
+  
+  public Variable(String name){
+    this.name = name;
+  }
+  
   /**
    * Gets {@code name}.
    * @return the name
